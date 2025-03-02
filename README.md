@@ -40,7 +40,7 @@ Below are some preview images of the website:
 Feel free to contribute! If you find any issues or have suggestions, open a pull request or issue in the repository.
 
 ## 📜 License
-This project is licensed under the MIT License.
+This project is licensed under the GNU GPL V3, 29 June 2007 License.
 
 ---
 🚀 **Developed by Gampaha Bandaranayake College Coding Club**
