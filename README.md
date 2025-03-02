@@ -1,7 +1,7 @@
 # SportMeet Live Score Preview Website
 
 ## 🌐 Live Demo
-Visit the website: [SportMeet](https://sportmeet-teamcdc.netlify.app/)
+Visit the website: [SportMeet](https://sportmeet-teamcdc.netlify.app/) [TEMP]
 
 ## 📌 About
 SportMeet is an interactive platform where users can check individual sports scores, overall scores, and view winning moments along with the respective house details. It provides a comprehensive way to track the performance of teams and athletes during the event.
