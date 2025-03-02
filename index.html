@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Sports Championship</title>
+    <title>House Sports Scores</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/B2jhjKRD/New-Project-1.png">
 </head>
 <body>
     <div class="container">
@@ -13,7 +14,7 @@
                 <div class="profile-icon"></div>
 <div class="club-icon"></div>
                 <div class="trophy-icon">🏆</div>
-                <div class="header-title">House Sports Championship</div>
+                <div class="header-title">House Sports Scores</div>
             </div>
             <div class="nav-tabs">
                 <a class="nav-tab" id="scores-tab">Scores</a>
@@ -29,7 +30,6 @@
             </div>
 
             <div class="sports-grid" id="sports-container">
-                <!-- Sports cards will be dynamically inserted here -->
             </div>
         </div>
 
@@ -40,7 +40,6 @@
             </div>
 
             <div class="rankings-grid" id="rankings-container">
-                <!-- Ranking cards will be dynamically inserted here -->
             </div>
         </div>
 
@@ -336,7 +335,6 @@
                         sport.scores[scoreIndex].score = Math.max(50, sport.scores[scoreIndex].score + changeAmount);
                         
                         renderSports();
-                        // Also update rankings if leaderboard is visible
                         if (leaderboardPage.style.display !== 'none') {
                             renderRankings();
                         }
