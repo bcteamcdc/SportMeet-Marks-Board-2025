@@ -1,4 +1,4 @@
-# SportMeet Website
+# SportMeet Live Score Preview Website
 
 ## 🌐 Live Demo
 Visit the website: [SportMeet](https://sportmeet-teamcdc.netlify.app/)
