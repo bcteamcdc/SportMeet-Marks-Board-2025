@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance - House Sports Scores</title>
+    <style>
+        :root {
+          /* Main color scheme */
+          --gamunu-color: #4d7efc;
+          --tissa-color: #37c968;
+          --parakram-color: #f3c537;
+          --vijaya-color: #f54242;
+          
+          /* Background gradients */
+          --background-gradient: linear-gradient(135deg, #1c2538 0%, #0f172a 100%);
+          --card-gradient: linear-gradient(160deg, #272e42 0%, #1e2638 100%);
+          
+          /* Text and UI colors */
+          --text-color: #ffffff;
+          --secondary-text: #a8b1c2;
+          --muted-text: #6c7a94;
+          --border-color: rgba(255, 255, 255, 0.08);
+          
+          /* Animations */
+          --transition-speed: 0.3s;
+          --bounce-timing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          --smooth-timing: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset and base styles */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+          font-size: 16px;
+        }
+
+        body {
+          background: var(--background-gradient);
+          color: var(--text-color);
+          line-height: 1.6;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 2rem;
+        }
+
+        .maintenance-container {
+          max-width: 600px;
+          animation: fadeInUp 0.8s var(--smooth-timing);
+        }
+
+        .trophy-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          animation: trophyWiggle 10s ease-in-out infinite;
+          display: inline-block;
+        }
+
+        .gear-icon {
+          font-size: 2rem;
+          display: inline-block;
+          margin: 0 1rem;
+          animation: gearSpin 8s linear infinite;
+        }
+
+        .title {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          background: linear-gradient(90deg, var(--gamunu-color), var(--vijaya-color));
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+          font-size: 1.2rem;
+          color: var(--secondary-text);
+          margin-bottom: 2rem;
+        }
+
+        .message {
+          background: var(--card-gradient);
+          border-radius: 0.8rem;
+          padding: 2rem;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          border: 1px solid var(--border-color);
+          margin-bottom: 2rem;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .message::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, var(--gamunu-color), var(--tissa-color), var(--parakram-color), var(--vijaya-color));
+        }
+
+        .progress-bar-container {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 1rem;
+          height: 0.75rem;
+          overflow: hidden;
+          margin: 2rem 0;
+          position: relative;
+        }
+
+        .progress-bar {
+          height: 100%;
+          width: 75%;
+          background: linear-gradient(90deg, var(--gamunu-color), var(--tissa-color), var(--parakram-color));
+          border-radius: 1rem;
+          animation: progressAnimation 2s var(--bounce-timing) forwards;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .progress-bar::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: linear-gradient(
+            90deg, 
+            rgba(255, 255, 255, 0) 0%, 
+            rgba(255, 255, 255, 0.3) 50%, 
+            rgba(255, 255, 255, 0) 100%
+          );
+          transform: translateX(-100%);
+          animation: progressShine 2.5s infinite;
+        }
+
+        .countdown {
+          color: var(--secondary-text);
+          font-size: 0.9rem;
+          margin-bottom: 2rem;
+        }
+
+        .contact-info {
+          color: var(--muted-text);
+          font-size: 0.9rem;
+        }
+
+        .houses {
+          display: flex;
+          justify-content: center;
+          margin: 2rem 0;
+          gap: 1.5rem;
+        }
+
+        .house {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          opacity: 0;
+          animation: fadeIn 0.5s forwards;
+        }
+
+        .house:nth-child(1) { animation-delay: 0.2s; }
+        .house:nth-child(2) { animation-delay: 0.4s; }
+        .house:nth-child(3) { animation-delay: 0.6s; }
+        .house:nth-child(4) { animation-delay: 0.8s; }
+
+        .house-dot {
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          margin-bottom: 0.5rem;
+        }
+
+        .house-dot.gamunu { background-color: var(--gamunu-color); }
+        .house-dot.tissa { background-color: var(--tissa-color); }
+        .house-dot.parakram { background-color: var(--parakram-color); }
+        .house-dot.vijaya { background-color: var(--vijaya-color); }
+
+        .house-name {
+          font-size: 0.8rem;
+          font-weight: 600;
+        }
+
+        .house-name.gamunu { color: var(--gamunu-color); }
+        .house-name.tissa { color: var(--tissa-color); }
+        .house-name.parakram { color: var(--parakram-color); }
+        .house-name.vijaya { color: var(--vijaya-color); }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes trophyWiggle {
+          0% { transform: rotate(0deg); }
+          2% { transform: rotate(10deg); }
+          4% { transform: rotate(-10deg); }
+          6% { transform: rotate(5deg); }
+          8% { transform: rotate(0deg); }
+          100% { transform: rotate(0deg); }
+        }
+
+        @keyframes progressShine {
+          from { transform: translateX(-100%); }
+          to { transform: translateX(300%); }
+        }
+
+        @keyframes progressAnimation {
+          from { width: 0; }
+          to { width: 75%; }
+        }
+
+        @keyframes gearSpin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+          html { font-size: 14px; }
+          .houses { gap: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+          .title { font-size: 1.5rem; }
+          .subtitle { font-size: 1rem; }
+          .houses { 
+            flex-wrap: wrap;
+            gap: 1.5rem 3rem;
+          }
+          .house {
+            flex-basis: 30%;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container">
+        <div class="trophy-icon">🏆</div>
+        <h1 class="title">House Sports Scores</h1>
+        <p class="subtitle">We're currently updating our scoreboard</p>
+        
+        <div class="message">
+            <span class="gear-icon">⚙️</span>
+            <span class="gear-icon" style="animation-direction: reverse; font-size: 1.5rem;">⚙️</span>
+            
+            <h2>Scheduled Maintenance</h2>
+            <p>We're making some improvements to bring you a better experience. The scoreboard will be back online shortly.</p>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            
+            <div class="countdown">
+                <p>Estimated completion: <strong>30 minutes</strong></p>
+            </div>
+            
+            <div class="contact-info">
+                <p>If you need immediate assistance, please contact the Coding Club.</p>
+            </div>
+        </div>
+        
+        <div class="houses">
+            <div class="house">
+                <div class="house-dot gamunu"></div>
+                <div class="house-name gamunu">Gamunu</div>
+            </div>
+            <div class="house">
+                <div class="house-dot tissa"></div>
+                <div class="house-name tissa">Tissa</div>
+            </div>
+            <div class="house">
+                <div class="house-dot parakram"></div>
+                <div class="house-name parakram">Parakram</div>
+            </div>
+            <div class="house">
+                <div class="house-dot vijaya"></div>
+                <div class="house-name vijaya">Vijaya</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p class="contact-info">© Bandaranayake College Coding Club</p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown timer functionality
+        function updateCountdown() {
+    const countdownEl = document.querySelector('.countdown strong');
+    let hours = 6;
+    let minutes = 0;
+    let seconds = 0;
+    
+    const interval = setInterval(() => {
+        seconds--;
+        if (seconds < 0) {
+            minutes--;
+            seconds = 59;
+            
+            if (minutes < 0) {
+                hours--;
+                minutes = 59;
+            }
+        }
+        
+        if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+            clearInterval(interval);
+            countdownEl.textContent = "Refreshing soon...";
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        } else {
+            countdownEl.textContent = `${hours} hours ${minutes} minutes ${seconds} seconds`;
+        }
+    }, 1000);
+}
+        
+        // Initialize the countdown when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCountdown();
+        });
+    </script>
+</body>
+</html>
