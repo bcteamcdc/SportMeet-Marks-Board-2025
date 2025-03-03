@@ -362,7 +362,43 @@
                 }
             }, 3000);
         }
+        function initVisitorCounter() {
+    // Check if localStorage is supported
+    if (typeof(Storage) !== "undefined") {
+        // Create counter container in the footer
+        const footer = document.querySelector('footer');
+        const counterContainer = document.createElement('div');
+        counterContainer.className = 'visitor-counter';
+        counterContainer.style.marginTop = '10px';
         
+        // Get the current date in format YYYY-MM-DD
+        const today = new Date().toISOString().split('T')[0];
+        
+        // Initialize or update total visits
+        let totalVisits = localStorage.getItem('totalVisits') || 0;
+        totalVisits = parseInt(totalVisits) + 1;
+        localStorage.setItem('totalVisits', totalVisits);
+        
+        // Initialize or update today's visits
+        let todayKey = 'visits_' + today;
+        let todayVisits = localStorage.getItem(todayKey) || 0;
+        todayVisits = parseInt(todayVisits) + 1;
+        localStorage.setItem(todayKey, todayVisits);
+        
+        // Display the counter
+        counterContainer.innerHTML = `
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <div><strong>Total Visits:</strong> ${totalVisits}</div>
+                <div><strong>Today's Visits:</strong> ${todayVisits}</div>
+            </div>
+        `;
+        
+        footer.appendChild(counterContainer);
+    }
+}
+
+// Call the function to initialize the counter
+initVisitorCounter();
         // Initialize the application
         initApp();
     </script>
