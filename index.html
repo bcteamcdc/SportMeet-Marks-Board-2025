@@ -12,7 +12,7 @@
         <header>
             <div class="header-left">
                 <div class="profile-icon"></div>
-<div class="club-icon"></div>
+                <div class="club-icon"></div>
                 <div class="trophy-icon">🏆</div>
                 <div class="header-title">House Sports Scores</div>
             </div>
@@ -22,7 +22,7 @@
                 <a class="nav-tab" id="moments-tab">Winning Moments</a>
             </div>
         </header>
-        <div id="leaderboard-page" class="page" >
+        <div id="leaderboard-page" class="page" style="display: none;">
             <div class="page-title">
                 <span class="page-title-icon">⭐</span>
                 <span>Overall House Rankings</span>
@@ -31,7 +31,7 @@
             <div class="rankings-grid" id="rankings-container">
             </div>
         </div>
-        <div id="scores-page" class="page"style="display: none;">
+        <div id="scores-page" class="page">
             <div class="page-title">
                 <span class="page-title-icon">📊</span>
                 <span>Sports Scores</span>
@@ -40,8 +40,6 @@
             <div class="sports-grid" id="sports-container">
             </div>
         </div>
-
-
 
         <div id="moments-page" class="page" style="display: none;">
             <div class="page-title">
@@ -151,7 +149,7 @@
 
         const momentsData = {
             "moments": [
-                                {
+                {
                     "id": "Badminton-final",
                     "title": "Badminton Championship Final",
                     "description": "A thrilling badminton match ends with a spectacular smash securing victory!",
@@ -165,10 +163,10 @@
                     "house": "Gamunu",
                     "image": "https://uploadimage.io/images/2025/02/26/481293868_1198761235586481_6186605271315011251_n.jpg"
                 },
-                                {
+                {
                     "id": "Softball-final",
                     "title": "Softball Championship Final",
-                    "description": "A dramatic softball showdown ends with a clutch hit securing the victory!"  ,
+                    "description": "A dramatic softball showdown ends with a clutch hit securing the victory!",
                     "house": "Gamunu",
                     "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Softball/480703812_1201348868661051_1014252395281935854_n.jpg"
                 },
@@ -193,6 +191,7 @@
         const sportsContainer = document.getElementById('sports-container');
         const rankingsContainer = document.getElementById('rankings-container');
         const momentsContainer = document.getElementById('moments-container');
+        
         function showPage(pageElement) {
             scoresPage.style.display = 'none';
             leaderboardPage.style.display = 'none';
@@ -224,10 +223,11 @@
             showPage(momentsPage);
             setActiveTab(momentsTab);
         });
-        setActiveTab(scoresTab);
+        
         function getMaxScore(scores) {
             return Math.max(...scores.map(item => item.score));
         }
+        
         function renderSports() {
             sportsContainer.innerHTML = '';
             
@@ -288,6 +288,7 @@
                 }))
                 .sort((a, b) => b.total - a.total);
         }
+        
         function renderRankings() {
             const rankings = calculateTotalPoints();
             rankingsContainer.innerHTML = '';
@@ -308,6 +309,7 @@
                 rankingsContainer.appendChild(rankCard);
             });
         }
+        
         function renderMoments() {
             momentsContainer.innerHTML = '';
             
@@ -315,7 +317,7 @@
                 const momentCard = document.createElement('div');
                 momentCard.className = 'moment-card';
                
-                  const imagePath = moment.image || `/api/placeholder/400/200`;
+                const imagePath = moment.image || `/api/placeholder/400/200`;
                 const houseColor = moment.house.toLowerCase();
                 
                 momentCard.innerHTML = `
@@ -333,10 +335,15 @@
                 momentsContainer.appendChild(momentCard);
             });
         }
+        
         function initApp() {
             renderSports();
             renderRankings();
             renderMoments();
+            
+            // Show scores page as default and set scores tab as active
+            showPage(scoresPage);
+            setActiveTab(scoresTab);
        
             setInterval(() => {
                 if (Math.random() > 0.7) {
@@ -356,6 +363,7 @@
                 }
             }, 3000);
         }
+        
         initApp();
     </script>
 </body>
