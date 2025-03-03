@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Sports Scores</title>
+    <title>InterHouse Sports Scores</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/B2jhjKRD/New-Project-1.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/B2jhjKR/New-Project-1.png">
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,7 @@
                 <div class="profile-icon"></div>
                 <div class="club-icon"></div>
                 <div class="trophy-icon">🏆</div>
-                <div class="header-title">House Sports Scores</div>
+                <div class="header-title">InterHouse Sports Scores</div>
             </div>
             <div class="nav-tabs">
                 <a class="nav-tab" id="leaderboard-tab">Leaderboard</a>
@@ -59,11 +59,11 @@
     <script>
         const sportsData = {
             "sports": [
-                                {
+                {
                     "id": "Road Race",
                     "name": "Road Race",
                     "venue": "In Road",
-                     "isLive": false,
+                    "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 20 },
                         { "house": "Tissa", "score": 25 },
@@ -71,12 +71,11 @@
                         { "house": "Vijaya", "score": 10 }
                     ]
                 },
-
                 {
                     "id": "Chess",
                     "name": "Chess",
                     "venue": "Grade 07 Section",
-                     "isLive": false,
+                    "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 10 },
                         { "house": "Tissa", "score": 2.5 },
@@ -85,10 +84,10 @@
                     ]
                 },
                 {
-                    "id": "Vollyball",
-                    "name": "Vollyball",
+                    "id": "Volleyball",
+                    "name": "Volleyball",
                     "venue": "Main Ground",
-                     "isLive": false,
+                    "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 5 },
                         { "house": "Tissa", "score": 15 },
@@ -100,19 +99,19 @@
                     "id": "Elle",
                     "name": "Elle",
                     "venue": "Main Ground",
-                     "isLive": false,
+                    "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 15 },
-                        { "house": "Tissa", "score": 05 },
+                        { "house": "Tissa", "score": 5 },
                         { "house": "Parakram", "score": 10 },
-                        { "house": "Vijaya", "score": 0}
+                        { "house": "Vijaya", "score": 0 }
                     ]
                 },
                 {
                     "id": "Hockey",
                     "name": "Hockey",
                     "venue": "Main Ground",
-                     "isLive": false,
+                    "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 0 },
                         { "house": "Tissa", "score": 15 },
@@ -124,16 +123,16 @@
                     "id": "Softball",
                     "name": "Softball",
                     "venue": "Main Ground",
-                     "isLive": false,
+                    "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 15 },
-                        { "house": "Tissa", "score": 05 },
+                        { "house": "Tissa", "score": 5 },
                         { "house": "Parakram", "score": 0 },
                         { "house": "Vijaya", "score": 10 }
                     ]
                 },
                 {
-                    "id": "Basketball",
+                    "id": "BasketBall",
                     "name": "BasketBall",
                     "venue": "BasketBall Court",
                     "isLive": false,
@@ -144,7 +143,6 @@
                         { "house": "Vijaya", "score": 0 }
                     ]
                 }
-
             ]
         };
 
@@ -162,7 +160,7 @@
                     "title": "Elle Championship Final",
                     "description": "Elle secures a stunning win in the final moments",
                     "house": "Gemunu",
-                    "image": "https://uploadimage.io/images/2025/02/26/481293868_1198761235586481_6186605271315011251_n.jpg"
+                    "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Elle/481293868_1198761235586481_6186605271315011251_n.jpg?raw=true"
                 },
                 {
                     "id": "Softball-final",
@@ -337,14 +335,12 @@
             });
         }
         
-
-        
         function initApp() {
             renderSports();
             renderRankings();
             renderMoments();
             
-            // Show scores page as default and set scores tab as active
+            // Set leaderboard page as default and set leaderboard tab as active
             showPage(leaderboardPage);
             setActiveTab(leaderboardTab);
        
@@ -356,7 +352,7 @@
                     
                     if (sport.isLive) {
                         const changeAmount = Math.floor(Math.random() * 5) - 2; // -2 to +2
-                        sport.scores[scoreIndex].score = Math.max(50, sport.scores[scoreIndex].score + changeAmount);
+                        sport.scores[scoreIndex].score = Math.max(0, sport.scores[scoreIndex].score + changeAmount);
                         
                         renderSports();
                         if (leaderboardPage.style.display !== 'none') {
@@ -367,6 +363,7 @@
             }, 3000);
         }
         
+        // Initialize the application
         initApp();
     </script>
 </body>
