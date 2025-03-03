@@ -253,7 +253,18 @@ header {
   color: var(--secondary-text);
   font-weight: 500;
 }
+.visitor-counter {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.visitor-counter strong {
+    color: #ffcc00;
+}
 .live-tag {
   display: inline-flex;
   align-items: center;
