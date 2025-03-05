@@ -4,7 +4,7 @@
   /* Main color scheme */
   --gemunu-color: #4d7efc;
   --tissa-color: #37c968;
-  --parakram-color: #f3c537;
+  --parakrama-color: #f3c537;
   --vijaya-color: #f54242;
   
   /* Background gradients */
@@ -220,7 +220,7 @@ header {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--gemunu-color), var(--tissa-color), var(--parakram-color), var(--vijaya-color));
+  background: linear-gradient(90deg, var(--gemunu-color), var(--tissa-color), var(--parakrama-color), var(--vijaya-color));
   opacity: 0;
   transition: opacity var(--transition-speed) var(--smooth-timing);
 }
@@ -333,7 +333,7 @@ header {
 
 .house-name.gemunu::before { background-color: var(--gemunu-color); }
 .house-name.tissa::before { background-color: var(--tissa-color); }
-.house-name.parakram::before { background-color: var(--parakram-color); }
+.house-name.parakrama::before { background-color: var(--parakrama-color); }
 .house-name.vijaya::before { background-color: var(--vijaya-color); }
 
 .house-score {
@@ -344,7 +344,7 @@ header {
 /* Colors */
 .gemunu { color: var(--gemunu-color); }
 .tissa { color: var(--tissa-color); }
-.parakram { color: var(--parakram-color); }
+.parakrama { color: var(--parakrama-color); }
 .vijaya { color: var(--vijaya-color); }
 
 /* Progress bars */
@@ -384,7 +384,7 @@ header {
 
 .progress-bar.gemunu { background-color: var(--gemunu-color); }
 .progress-bar.tissa { background-color: var(--tissa-color); }
-.progress-bar.parakram { background-color: var(--parakram-color); }
+.progress-bar.parakrama { background-color: var(--parakrama-color); }
 .progress-bar.vijaya { background-color: var(--vijaya-color); }
 
 /* Rankings page styles */
@@ -556,7 +556,7 @@ header {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--vijaya-color), var(--parakram-color));
+  background: linear-gradient(90deg, var(--vijaya-color), var(--parakrama-color));
   transition: width 0.3s var(--smooth-timing);
 }
 
