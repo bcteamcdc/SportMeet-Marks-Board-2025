@@ -1,362 +1,506 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InterHouse Sports Scores 2025</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/B2jhjKR/New-Project-1.png">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div class="header-left">
-                <div class="profile-icon"></div>
-                <div class="club-icon"></div>
-                <div class="trophy-icon">🏆</div>
-                <div class="header-title">InterHouse Sports Scores 2025</div>
-            </div>
-            <div class="nav-tabs">
-                <a class="nav-tab" id="leaderboard-tab">Leaderboard</a>
-                <a class="nav-tab" id="scores-tab">Scores</a>
-                <a class="nav-tab" id="moments-tab">Winning Moments</a>
-            </div>
-        </header>
-        <div id="leaderboard-page" class="page" style="display: none;">
-            <div class="page-title">
-                <span class="page-title-icon">⭐</span>
-                <span>Overall House Rankings</span>
-            </div>
-
-            <div class="rankings-grid" id="rankings-container">
-            </div>
-        </div>
-        <div id="scores-page" class="page">
-            <div class="page-title">
-                <span class="page-title-icon">📊</span>
-                <span>Sports Scores</span>
-            </div>
-
-            <div class="sports-grid" id="sports-container">
-            </div>
-        </div>
-
-        <div id="moments-page" class="page" style="display: none;">
-            <div class="page-title">
-                <span class="page-title-icon">📸</span>
-                <span>Winning Moments</span>
-            </div>
-
-            <div class="moments-grid" id="moments-container">
-            </div>
-        </div>
-
-        <footer>
-            <span>Created by: Bandaranayake College Coding Club</span>
-        </footer>
-    </div>
-
-    <script>
-        const sportsData = {
-            "sports": [
-                {
-                    "id": "Swimming",
-                    "name": "Swimming",
-                    "date": "03/03/2025",
-                    "venue": "Swimming Pool",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 15 },
-                        { "house": "Tissa", "score": 05 },
-                        { "house": "Parakrama", "score": 10 },
-                        { "house": "Vijaya", "score": 0 }
-                    ]
-                },
-                                {
-                    "id": "Tag-Rugby",
-                    "name": "Tag-Rugby",
-                    "date": "03/03/2025",
-                    "venue": "Main Ground",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 0 },
-                        { "house": "Tissa", "score": 15 },
-                        { "house": "Parakrama", "score": 10 },
-                        { "house": "Vijaya", "score": 05 }
-                    ]
-                },
-                {
-                    "id": "Road Race",
-                    "name": "Road Race",
-                    "date": "28/02/2025",
-                    "venue": "In Road",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 20 },
-                        { "house": "Tissa", "score": 25 },
-                        { "house": "Parakrama", "score": 15 },
-                        { "house": "Vijaya", "score": 10 }
-                    ]
-                },
-                 {
-                    "id": "Badminton",
-                    "name": "Badminton",
-                    "date": "27/02/2025",
-                    "venue": "Makro ",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 05 },
-                        { "house": "Tissa", "score": 0 },
-                        { "house": "Parakrama", "score": 12.5 },
-                        { "house": "Vijaya", "score": 12.5 }
-                    ]
-                },
-                {
-                    "id": "Chess",
-                    "name": "Chess",
-                    "date": "25/02/2025",
-                    "venue": "Grade 07 Section",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 10 },
-                        { "house": "Tissa", "score": 2.5 },
-                        { "house": "Parakrama", "score": 15 },
-                        { "house": "Vijaya", "score": 2.5 }
-                    ]
-                },
-                {
-                    "id": "Volleyball",
-                    "name": "Volleyball",
-                    "date": "24/02/2025",
-                    "venue": "Main Ground",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 5 },
-                        { "house": "Tissa", "score": 15 },
-                        { "house": "Parakrama", "score": 0 },
-                        { "house": "Vijaya", "score": 10 }
-                    ]
-                },
-                {
-                    "id": "Elle",
-                    "name": "Elle",
-                    "date": "21/02/2025",
-                    "venue": "Main Ground",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 15 },
-                        { "house": "Tissa", "score": 5 },
-                        { "house": "Parakrama", "score": 10 },
-                        { "house": "Vijaya", "score": 0 }
-                    ]
-                },
-                {
-                    "id": "Hockey",
-                    "name": "Hockey",
-                    "date": "20/02/2025",
-                    "venue": "Main Ground",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 0 },
-                        { "house": "Tissa", "score": 15 },
-                        { "house": "Parakrama", "score": 5 },
-                        { "house": "Vijaya", "score": 10 }
-                    ]
-                },
-                {
-                    "id": "Softball",
-                    "name": "Softball",
-                    "date": "19/02/2025",
-                    "venue": "Main Ground",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 15 },
-                        { "house": "Tissa", "score": 5 },
-                        { "house": "Parakrama", "score": 0 },
-                        { "house": "Vijaya", "score": 10 }
-                    ]
-                },
-                {
-                    "id": "BasketBall",
-                    "name": "BasketBall",
-                    "date": "19/02/2025",
-                    "venue": "BasketBall Court",
-                    "isLive": false,
-                    "scores": [
-                        { "house": "Gemunu", "score": 5 },
-                        { "house": "Tissa", "score": 15 },
-                        { "house": "Parakrama", "score": 10 },
-                        { "house": "Vijaya", "score": 0 }
-                    ]
-                }
-            ]
-        };
-
-
-        const momentsData = {
-            "moments": [
-                {
-                    "id": "Badminton-final",
-                    "title": "Badminton Championship Final",
-                    "description": "A thrilling badminton match ends with a spectacular smash securing victory!",
-                    "house": "Vijaya",
-                    "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Badminton/481947705_1201495678646370_3815352414909344404_n.jpg"
-                },
-                {
-                    "id": "Elle-final",
-                    "title": "Elle Championship Final",
-                    "description": "Elle secures a stunning win in the final moments",
-                    "house": "Gemunu",
-                    "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Elle/481293868_1198761235586481_6186605271315011251_n.jpg?raw=true"
-                },
-                {
-                    "id": "Softball-final",
-                    "title": "Softball Championship Final",
-                    "description": "A dramatic softball showdown ends with a clutch hit securing the victory!",
-                    "house": "Gemunu",
-                    "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Softball/480703812_1201348868661051_1014252395281935854_n.jpg"
-                },
-                {
-                    "id": "BasketBall-final",
-                    "title": "BasketBall Champions",
-                    "description": "Epic basketball showdown ends with a buzzer-beater win",
-                    "house": "Tissa",
-                    "image": "https://raw.githubusercontent.com/ALEX-ID-LK/sportmeets/refs/heads/main//480881746_1198555862273685_2223825316418136102_n.jpg"
-                }
-            ]
-        };
-
-        const scoresTab = document.getElementById('scores-tab');
-        const leaderboardTab = document.getElementById('leaderboard-tab');
-        const momentsTab = document.getElementById('moments-tab');
-        
-        const scoresPage = document.getElementById('scores-page');
-        const leaderboardPage = document.getElementById('leaderboard-page');
-        const momentsPage = document.getElementById('moments-page');
-        
-        const sportsContainer = document.getElementById('sports-container');
-        const rankingsContainer = document.getElementById('rankings-container');
-        const momentsContainer = document.getElementById('moments-container');
-        
-        function showPage(pageElement) {
-            scoresPage.style.display = 'none';
-            leaderboardPage.style.display = 'none';
-            momentsPage.style.display = 'none';
-            
-            pageElement.style.display = 'block';
-        }
-
-        function setActiveTab(tab) {
-            scoresTab.classList.remove('active');
-            leaderboardTab.classList.remove('active');
-            momentsTab.classList.remove('active');
-            
-            tab.classList.add('active');
-        }
-
-        scoresTab.addEventListener('click', () => {
-            showPage(scoresPage);
-            setActiveTab(scoresTab);
-        });
-
-        leaderboardTab.addEventListener('click', () => {
-            showPage(leaderboardPage);
-            setActiveTab(leaderboardTab);
-            renderRankings();
-        });
-
-        momentsTab.addEventListener('click', () => {
-            showPage(momentsPage);
-            setActiveTab(momentsTab);
-        });
-        
-        function getMaxScore(scores) {
-            return Math.max(...scores.map(item => item.score));
-        }
-        
-        function renderSports() {
-            sportsContainer.innerHTML = '';
-            
-            sportsData.sports.forEach(sport => {
-                const maxScore = getMaxScore(sport.scores);
-                
-                const sportCard = document.createElement('div');
-                sportCard.className = 'sport-card';
-                
-                let sportContent = `
-                    <div class="sport-header">
-                        <div class="sport-title">${sport.name}</div>
-                        <div class="sport-subtitle">${sport.venue}</div>
-<div class="sport-date">${sport.date}</div>
-                        ${sport.isLive ? '<div class="live-tag"><div class="live-indicator"></div>LIVE</div>' : ''}
-                    </div>
-                `;
-                
-                sport.scores.forEach(score => {
-                    const percentage = (score.score / maxScore) * 100;
-                    
-                    sportContent += `
-                        <div class="score-item">
-                            <div class="score-row">
-                                <div class="house-name ${score.house.toLowerCase()}">${score.house}</div>
-                                <div class="house-score">${score.score}</div>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-bar ${score.house.toLowerCase()}" style="width: ${percentage}%"></div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                sportCard.innerHTML = sportContent;
-                sportsContainer.appendChild(sportCard);
-            });
-        }
-
-        function calculateTotalPoints() {
-            const houses = {
-                "Vijaya": { total: 0, color: "vijaya" },
-                "Tissa": { total: 0, color: "tissa" },
-                "Gemunu": { total: 0, color: "gemunu" },
-                "Parakrama": { total: 0, color: "parakrama" }
-            };
-            
-            sportsData.sports.forEach(sport => {
-                sport.scores.forEach(score => {
-                    houses[score.house].total += score.score;
-                });
-            });
-            
-            return Object.entries(houses)
-                .map(([name, data]) => ({ 
-                    name, 
-                    total: data.total, 
-                    color: data.color 
-                }))
-                .sort((a, b) => b.total - a.total);
-        }
-        
-        function renderRankings() {
-            const rankings = calculateTotalPoints();
-            rankingsContainer.innerHTML = '';
-            
-            rankings.forEach((house, index) => {
-                const rankCard = document.createElement('div');
-                rankCard.className = `ranking-card ${index === 0 ? 'highlighted' : ''}`;
-                
-                rankCard.innerHTML = `
-                    <div class="rank-number">Rank #${index + 1}</div>
-                    <div class="house-ranking ${house.color}">
-                        <span class="house-icon">🏠</span>
-                        <span>${house.name}</span>
-                    </div>
-                    <div class="total-score">${house.total}</div>
-                `;
-                
-                rankingsContainer.appendChild(rankCard);
-            });
-        }
-        
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterHouse Sports Scores</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32"
+   href="https://i.ibb.co/B2jhjKR/New-Project-1.png">
+ </head>
+ 
+ <body>
+  <div class="container">
+  <header>
+  <div class="header-left">
+  <div class="profile-icon"></div>
+  <div class="club-icon"></div>
+  <div class="trophy-icon">🏆</div>
+  <div class="header-title">InterHouse Sports Scores</div>
+  </div>
+  <div class="nav-tabs">
+  <a class="nav-tab" id="leaderboard-tab">Leaderboard</a>
+  <a class="nav-tab" id="scores-tab">Scores</a>
+  <a class="nav-tab" id="moments-tab">Winning Moments</a>
+  </div>
+  </header>
+  <div id="leaderboard-page" class="page" style="display: none;">
+  <div class="page-title">
+  <span class="page-title-icon">⭐</span>
+  <span>Overall House Rankings</span>
+  </div>
+ 
+  <div class="rankings-grid" id="rankings-container">
+  </div>
+  </div>
+  <div id="scores-page" class="page">
+  <div class="page-title">
+  <span class="page-title-icon">📊</span>
+  <span>Sports Scores</span>
+  </div>
+ 
+  <div class="sports-grid" id="sports-container">
+  </div>
+  </div>
+ 
+  <div id="moments-page" class="page" style="display: none;">
+  <div class="page-title">
+  <span class="page-title-icon">📸</span>
+  <span>Winning Moments</span>
+  </div>
+ 
+  <div class="moments-grid" id="moments-container">
+  </div>
+  </div>
+ 
+  <!-- New House Details Page -->
+  <div id="house-details-page" class="page" style="display: none;">
+  <div class="page-title">
+  <span class="page-title-icon">🏠</span>
+  <span id="house-details-title">House Details</span>
+  </div>
+  <div class="sports-grid" id="house-sports-container">
+  </div>
+  </div>
+ 
+  <footer>
+  <span>Created by: Bandaranayake College Coding Club</span>
+  </footer>
+  </div>
+ 
+  <script>
+  const sportsData = {
+  "sports": [{
+  "id": "Swimming",
+  "name": "Swimming",
+  "date": "03/03/2025",
+  "venue": "Swimming Pool",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 15
+  }, {
+  "house": "Tissa",
+  "score": 05
+  }, {
+  "house": "Parakrama",
+  "score": 10
+  }, {
+  "house": "Vijaya",
+  "score": 0
+  }]
+  },
+  {
+  "id": "Tag-Rugby",
+  "name": "Tag-Rugby",
+  "date": "03/03/2025",
+  "venue": "Main Ground",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 0
+  }, {
+  "house": "Tissa",
+  "score": 15
+  }, {
+  "house": "Parakrama",
+  "score": 10
+  }, {
+  "house": "Vijaya",
+  "score": 05
+  }]
+  },
+  {
+  "id": "Road Race",
+  "name": "Road Race",
+  "date": "28/02/2025",
+  "venue": "In Road",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 20
+  }, {
+  "house": "Tissa",
+  "score": 25
+  }, {
+  "house": "Parakrama",
+  "score": 15
+  }, {
+  "house": "Vijaya",
+  "score": 10
+  }]
+  },
+  {
+  "id": "Badminton",
+  "name": "Badminton",
+  "date": "27/02/2025",
+  "venue": "Makro ",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 05
+  }, {
+  "house": "Tissa",
+  "score": 0
+  }, {
+  "house": "Parakrama",
+  "score": 12.5
+  }, {
+  "house": "Vijaya",
+  "score": 12.5
+  }]
+  },
+  {
+  "id": "Chess",
+  "name": "Chess",
+  "date": "25/02/2025",
+  "venue": "Grade 07 Section",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 10
+  }, {
+  "house": "Tissa",
+  "score": 2.5
+  }, {
+  "house": "Parakrama",
+  "score": 15
+  }, {
+  "house": "Vijaya",
+  "score": 2.5
+  }]
+  },
+  {
+  "id": "Volleyball",
+  "name": "Volleyball",
+  "date": "24/02/2025",
+  "venue": "Main Ground",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 5
+  }, {
+  "house": "Tissa",
+  "score": 15
+  }, {
+  "house": "Parakrama",
+  "score": 0
+  }, {
+  "house": "Vijaya",
+  "score": 10
+  }]
+  },
+  {
+  "id": "Elle",
+  "name": "Elle",
+  "date": "21/02/2025",
+  "venue": "Main Ground",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 15
+  }, {
+  "house": "Tissa",
+  "score": 5
+  }, {
+  "house": "Parakrama",
+  "score": 10
+  }, {
+  "house": "Vijaya",
+  "score": 0
+  }]
+  },
+  {
+  "id": "Hockey",
+  "name": "Hockey",
+  "date": "20/02/2025",
+  "venue": "Main Ground",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 0
+  }, {
+  "house": "Tissa",
+  "score": 15
+  }, {
+  "house": "Parakrama",
+  "score": 5
+  }, {
+  "house": "Vijaya",
+  "score": 10
+  }]
+  },
+  {
+  "id": "Softball",
+  "name": "Softball",
+  "date": "19/02/2025",
+  "venue": "Main Ground",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 15
+  }, {
+  "house": "Tissa",
+  "score": 5
+  }, {
+  "house": "Parakrama",
+  "score": 0
+  }, {
+  "house": "Vijaya",
+  "score": 10
+  }]
+  },
+  {
+  "id": "BasketBall",
+  "name": "BasketBall",
+  "date": "19/02/2025",
+  "venue": "BasketBall Court",
+  "isLive": false,
+  "scores": [{
+  "house": "Gemunu",
+  "score": 5
+  }, {
+  "house": "Tissa",
+  "score": 15
+  }, {
+  "house": "Parakrama",
+  "score": 10
+  }, {
+  "house": "Vijaya",
+  "score": 0
+  }]
+  }
+  ]
+  };
+ 
+  const momentsData = {
+  "moments": [{
+  "id": "Badminton-final",
+  "title": "Badminton Championship Final",
+  "description": "A thrilling badminton match ends with a spectacular smash securing victory!",
+  "house": "Vijaya",
+  "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Badminton/481947705_1201495678646370_3815352414909344404_n.jpg"
+  },
+  {
+  "id": "Elle-final",
+  "title": "Elle Championship Final",
+  "description": "Elle secures a stunning win in the final moments",
+  "house": "Gemunu",
+  "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Elle/481293868_1198761235586481_6186605271315011251_n.jpg?raw=true"
+  },
+  {
+  "id": "Softball-final",
+  "title": "Softball Championship Final",
+  "description": "A dramatic softball showdown ends with a clutch hit securing the victory!",
+  "house": "Gemunu",
+  "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Softball/480703812_1201348868661051_1014252395281935854_n.jpg"
+  },
+  {
+  "id": "BasketBall-final",
+  "title": "BasketBall Champions",
+  "description": "Epic basketball showdown ends with a buzzer-beater win",
+  "house": "Tissa",
+  "image": "https://raw.githubusercontent.com/ALEX-ID-LK/sportmeets/refs/heads/main//480881746_1198555862273685_2223825316418136102_n.jpg"
+  }
+  ]
+  };
+ 
+  const scoresTab = document.getElementById('scores-tab');
+  const leaderboardTab = document.getElementById('leaderboard-tab');
+  const momentsTab = document.getElementById('moments-tab');
+ 
+  const scoresPage = document.getElementById('scores-page');
+  const leaderboardPage = document.getElementById('leaderboard-page');
+  const momentsPage = document.getElementById('moments-page');
+  // New page elements
+  const houseDetailsPage = document.getElementById('house-details-page');
+  const houseSportsContainer = document.getElementById('house-sports-container');
+  const houseDetailsTitle = document.getElementById('house-details-title');
+ 
+  const sportsContainer = document.getElementById('sports-container');
+  const rankingsContainer = document.getElementById('rankings-container');
+  const momentsContainer = document.getElementById('moments-container');
+ 
+  function showPage(pageElement) {
+  scoresPage.style.display = 'none';
+  leaderboardPage.style.display = 'none';
+  momentsPage.style.display = 'none';
+  houseDetailsPage.style.display = 'none'; // Hide the house details page
+ 
+  pageElement.style.display = 'block';
+  }
+ 
+  function setActiveTab(tab) {
+  scoresTab.classList.remove('active');
+  leaderboardTab.classList.remove('active');
+  momentsTab.classList.remove('active');
+ 
+  tab.classList.add('active');
+  }
+ 
+  scoresTab.addEventListener('click', () => {
+  showPage(scoresPage);
+  setActiveTab(scoresTab);
+  });
+ 
+  leaderboardTab.addEventListener('click', () => {
+  showPage(leaderboardPage);
+  setActiveTab(leaderboardTab);
+  renderRankings();
+  });
+ 
+  momentsTab.addEventListener('click', () => {
+  showPage(momentsPage);
+  setActiveTab(momentsTab);
+  });
+ 
+  function getMaxScore(scores) {
+  return Math.max(...scores.map(item => item.score));
+  }
+ 
+  function renderSports() {
+  sportsContainer.innerHTML = '';
+ 
+  sportsData.sports.forEach(sport => {
+  const maxScore = getMaxScore(sport.scores);
+ 
+  const sportCard = document.createElement('div');
+  sportCard.className = 'sport-card';
+ 
+  let sportContent = `
+  <div class="sport-header">
+  <div class="sport-title">${sport.name}</div>
+  <div class="sport-subtitle">${sport.venue}</div>
+  <div class="sport-date">${sport.date}</div>
+  ${sport.isLive ? '<div class="live-tag"><div class="live-indicator"></div>LIVE</div>' : ''}
+  </div>
+  `;
+ 
+  sport.scores.forEach(score => {
+  const percentage = (score.score / maxScore) * 100;
+ 
+  sportContent += `
+  <div class="score-item">
+  <div class="score-row">
+  <div class="house-name ${score.house.toLowerCase()}">${score.house}</div>
+  <div class="house-score">${score.score}</div>
+  </div>
+  <div class="progress-container">
+  <div class="progress-bar ${score.house.toLowerCase()}" style="width: ${percentage}%"></div>
+  </div>
+  </div>
+  `;
+  });
+ 
+  sportCard.innerHTML = sportContent;
+  sportsContainer.appendChild(sportCard);
+  });
+  }
+ 
+  function calculateTotalPoints() {
+  const houses = {
+  "Vijaya": {
+  total: 0,
+  color: "vijaya"
+  },
+  "Tissa": {
+  total: 0,
+  color: "tissa"
+  },
+  "Gemunu": {
+  total: 0,
+  color: "gemunu"
+  },
+  "Parakrama": {
+  total: 0,
+  color: "parakrama"
+  }
+  };
+ 
+  sportsData.sports.forEach(sport => {
+  sport.scores.forEach(score => {
+  houses[score.house].total += score.score;
+  });
+  });
+ 
+  return Object.entries(houses)
+  .map(([name, data]) => ({
+  name,
+  total: data.total,
+  color: data.color
+  }))
+  .sort((a, b) => b.total - a.total);
+  }
+ 
+  function renderRankings() {
+  const rankings = calculateTotalPoints();
+  rankingsContainer.innerHTML = '';
+ 
+  rankings.forEach((house, index) => {
+  const rankCard = document.createElement('div');
+  rankCard.className = `ranking-card ${index === 0 ? 'highlighted' : ''}`;
+  rankCard.dataset.house = house.name; // Store house name in data attribute
+  rankCard.addEventListener('click', () => showHouseDetails(house.name)); // Add click event
+ 
+  rankCard.innerHTML = `
+  <div class="rank-number">Rank #${index + 1}</div>
+  <div class="house-ranking ${house.color}">
+  <span class="house-icon">🏠</span>
+  <span>${house.name}</span>
+  </div>
+  <div class="total-score">${house.total}</div>
+  `;
+ 
+  rankingsContainer.appendChild(rankCard);
+  });
+  }
+ 
+  // Function to show details of a specific house
+  function showHouseDetails(houseName) {
+  showPage(houseDetailsPage); // Show house details page
+  houseDetailsTitle.textContent = `${houseName} Details`; // Set the title
+  renderHouseSports(houseName); // Render sports for the house
+  }
+ 
+  // Function to render sports for a specific house
+  function renderHouseSports(houseName) {
+  houseSportsContainer.innerHTML = ''; // Clear existing content
+ 
+  // Filter sports data for the selected house
+  const houseSports = sportsData.sports.map(sport => ({
+  ...sport,
+  scores: sport.scores.filter(score => score.house === houseName)
+  })).filter(sport => sport.scores.length > 0); // Filter out sports where the house didn't participate
+ 
+  houseSports.forEach(sport => {
+  const sportCard = document.createElement('div');
+  sportCard.className = 'sport-card';
+ 
+  let sportContent = `
+  <div class="sport-header">
+  <div class="sport-title">${sport.name}</div>
+  <div class="sport-subtitle">${sport.venue}</div>
+  <div class="sport-date">${sport.date}</div>
+  </div>
+  `;
+ 
+  sport.scores.forEach(score => {
+  sportContent += `
+  <div class="score-item">
+  <div class="score-row">
+  <div class="house-name ${score.house.toLowerCase()}">${score.house}</div>
+  <div class="house-score">${score.score}</div>
+  </div>
+  </div>
+  `;
+  });
+ 
+  sportCard.innerHTML = sportContent;
+  houseSportsContainer.appendChild(sportCard);
+  });
+  }
+ 
         function renderMoments() {
             momentsContainer.innerHTML = '';
             
@@ -382,37 +526,14 @@
                 momentsContainer.appendChild(momentCard);
             });
         }
-        
-        function initApp() {
-            renderSports();
-            renderRankings();
-            renderMoments();
-            
-            // Set leaderboard page as default and set leaderboard tab as active
-            showPage(leaderboardPage);
-            setActiveTab(leaderboardTab);
-       
-            setInterval(() => {
-                if (Math.random() > 0.7) {
-                    const sportIndex = Math.floor(Math.random() * sportsData.sports.length);
-                    const scoreIndex = Math.floor(Math.random() * 4);
-                    const sport = sportsData.sports[sportIndex];
-                    
-                    if (sport.isLive) {
-                        const changeAmount = Math.floor(Math.random() * 5) - 2; // -2 to +2
-                        sport.scores[scoreIndex].score = Math.max(0, sport.scores[scoreIndex].score + changeAmount);
-                        
-                        renderSports();
-                        if (leaderboardPage.style.display !== 'none') {
-                            renderRankings();
-                        }
-                    }
-                }
-            }, 3000);
-        }
-     
-        // Initialize the application
-        initApp();
-    </script>
-</body>
-</html>
+ 
+  // Initial rendering
+  renderSports();
+  renderRankings();
+  renderMoments();
+  showPage(leaderboardPage);
+  setActiveTab(leaderboardTab);
+  </script>
+ </body>
+ 
+ </html>
