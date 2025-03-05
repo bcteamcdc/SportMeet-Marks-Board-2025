@@ -61,8 +61,9 @@
             "sports": [
                 {
                     "id": "Swimming",
-                    "name": "swimming",
-                    "venue": "swimming Pool",
+                    "name": "Swimming",
+                    "date": "03/03/2025",
+                    "venue": "Swimming Pool",
                     "isLive": false,
                     "scores": [
                         { "house": "Gemunu", "score": 15 },
@@ -74,6 +75,7 @@
                                 {
                     "id": "Tag-Rugby",
                     "name": "Tag-Rugby",
+                    "date": "03/03/2025",
                     "venue": "Main Ground",
                     "isLive": false,
                     "scores": [
@@ -86,6 +88,7 @@
                 {
                     "id": "Road Race",
                     "name": "Road Race",
+                    "date": "28/02/2025",
                     "venue": "In Road",
                     "isLive": false,
                     "scores": [
@@ -98,6 +101,7 @@
                  {
                     "id": "Badminton",
                     "name": "Badminton",
+                    "date": "27/02/2025",
                     "venue": "Makro ",
                     "isLive": false,
                     "scores": [
@@ -110,6 +114,7 @@
                 {
                     "id": "Chess",
                     "name": "Chess",
+                    "date": "25/02/2025",
                     "venue": "Grade 07 Section",
                     "isLive": false,
                     "scores": [
@@ -122,6 +127,7 @@
                 {
                     "id": "Volleyball",
                     "name": "Volleyball",
+                    "date": "24/02/2025",
                     "venue": "Main Ground",
                     "isLive": false,
                     "scores": [
@@ -134,6 +140,7 @@
                 {
                     "id": "Elle",
                     "name": "Elle",
+                    "date": "21/02/2025",
                     "venue": "Main Ground",
                     "isLive": false,
                     "scores": [
@@ -146,6 +153,7 @@
                 {
                     "id": "Hockey",
                     "name": "Hockey",
+                    "date": "20/02/2025",
                     "venue": "Main Ground",
                     "isLive": false,
                     "scores": [
@@ -158,6 +166,7 @@
                 {
                     "id": "Softball",
                     "name": "Softball",
+                    "date": "19/02/2025",
                     "venue": "Main Ground",
                     "isLive": false,
                     "scores": [
@@ -170,6 +179,7 @@
                 {
                     "id": "BasketBall",
                     "name": "BasketBall",
+                    "date": "19/02/2025",
                     "venue": "BasketBall Court",
                     "isLive": false,
                     "scores": [
@@ -181,6 +191,7 @@
                 }
             ]
         };
+
 
         const momentsData = {
             "moments": [
@@ -276,6 +287,7 @@
                     <div class="sport-header">
                         <div class="sport-title">${sport.name}</div>
                         <div class="sport-subtitle">${sport.venue}</div>
+<div class="sport-date">${sport.date}</div>
                         ${sport.isLive ? '<div class="live-tag"><div class="live-indicator"></div>LIVE</div>' : ''}
                     </div>
                 `;
