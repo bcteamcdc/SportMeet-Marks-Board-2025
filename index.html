@@ -442,12 +442,7 @@
     let currentSlide = 0;
     let slideshowInterval;
     const slideshowDelay = 2000; // 5 seconds between slides
-    const currentDate = new Date();
-    lastUpdateDate.textContent = currentDate.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
+
 
     function showPage(pageElement) {
       scoresPage.style.display = 'none';
