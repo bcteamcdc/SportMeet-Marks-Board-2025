@@ -447,25 +447,13 @@
       "venue": "Main Ground",
       "isLive": false,
       "scores": [
-        { "house": "Gemunu", "score": 15 },
-        { "house": "Tissa", "score": 5 },
-        { "house": "Parakrama", "score": 10 },
-        { "house": "Vijaya", "score": 0 }
+        { "house": "Gemunu", "score": 95 },
+        { "house": "Tissa", "score": 113 },
+        { "house": "Parakrama", "score": 69 },
+        { "house": "Vijaya", "score": 48 }
       ]
     },
-    {
-      "id": "FootBall",
-      "name": "FootBall",
-      "date": "07/03/2025",
-      "venue": "Swimming Pool",
-      "isLive": false,
-      "scores": [
-        { "house": "Gemunu", "score": 15 },
-        { "house": "Tissa", "score": 5 },
-        { "house": "Parakrama", "score": 10 },
-        { "house": "Vijaya", "score": 0 }
-      ]
-    },
+
     {
       "id": "Swimming",
       "name": "Swimming",
