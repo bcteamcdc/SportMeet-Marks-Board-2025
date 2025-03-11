@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" sizes="32x32"
     href="https://i.ibb.co/B2jhjKR/New-Project-1.png">
   <style>
-    /* Slideshow styles */
     .slideshow-container {
       position: relative;
       width: 100%;
@@ -35,7 +34,6 @@
       height: 400px;
       object-fit: cover;
     }
-
     .slideshow-caption {
       position: absolute;
       bottom: 0;
@@ -84,10 +82,6 @@
       background-color: #717171;
     }
 
-    @keyframes fade {
-      from {opacity: 0.4}
-      to {opacity: 1}
-    }
   </style>
 </head>
 
@@ -137,13 +131,11 @@
       <div class="slideshow-controls" id="slideshow-controls">
         <!-- Indicators will be added dynamically -->
       </div>
-<br>
+    <br>
 
-  <div class="moments-grid" id="moments-container">
-  </div>
+    <div class="moments-grid" id="moments-container">
     </div>
-
-    <!-- House Details Page with Back Button -->
+    </div>
     <div id="house-details-page" class="page" style="display: none;">
       <button class="back-button" id="back-to-leaderboard">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -158,217 +150,612 @@
       <div class="sports-grid" id="house-sports-container">
       </div>
     </div>
+<div id="athletics-details-page" class="page" style="display: none;">
+  <button class="back-button" id="back-to-scores">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Sports
+  </button>
+  <div class="page-title">
+    <span class="page-title-icon">🏃</span>
+    <span>Athletics Details</span>
+  </div>
+  <div class="athletics-container" id="athletics-container">
+    <!-- Category groups will be added here dynamically -->
+  </div>
+</div>
 
     <footer>
       <span>Created by: Bandaranayake College Coding Club</span>
-      <div class="last-updated">Last Updated: <span id="last-update-date">March 03, 2025</span></div>
+      <div class="last-updated">Last Updated: <span id="last-update-date">March 10, 2025</span></div>
     </footer>
   </div>
 
   <script>
-    const sportsData = {
-      "sports": [{
+
+    const athleticsData = {
+      "categories": [
+        {
+          "name": "Under 14",
+          "events": [
+            {
+              "name": "60m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 3 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 6 }
+              ]
+            },
+            {
+              "name": "100m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 3 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 6 }
+              ]
+            },
+            {
+              "name": "80m Hurdles",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 8 }
+              ]
+            },
+            {
+              "name": "High jump",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 1 },
+                { "house": "Vijaya", "score": 5 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+           {
+              "name": "Shot Put",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 4 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+           {
+              "name": "Long Jump",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 1 },
+                { "house": "Vijaya", "score": 3 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 5 }
+              ]
+            },
+           {
+              "name": "100x4",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+          ]
+        },
+        {
+          "name": "Under 16",
+          "events": [
+            {
+              "name": "100m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 1 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+            {
+              "name": "200m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 6 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+            {
+              "name": "400m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score":4 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "800m Running",
+              "date" : "10/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 1 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 8 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "100m Hurdles",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 6 }
+              ]
+            },
+            {
+              "name": "300m Hurdles",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "High Jump",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 1 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+            {
+              "name": "Long Jump",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 1 },
+                { "house": "Tissa", "score": 5 }
+              ]
+            },
+            {
+              "name": "Shot Put",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+            {
+              "name": "Discus throw",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 8 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 1 }
+              ]
+            },
+            {
+              "name": "Javelin throw",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 1 },
+                { "house": "Vijaya", "score": 5 },
+                { "house": "Parakrama", "score": 3 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "100x4",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "400x4",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 7 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 10 },
+                { "house": "Tissa", "score": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Under 18",
+          "events": [
+            {
+              "name": "110m Hurdles",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 8 }
+              ]
+            },
+
+            {
+              "name": "400m Hurdles",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 4 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 5 }
+              ]
+            },
+            {
+              "name": "High Jump",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 6 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "800m Running",
+              "date" : "10/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 1 },
+                { "house": "Vijaya", "score": 3 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 5 }
+              ]
+            },
+            {
+              "name": "Tripple Jump",
+              "date" : "10/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score":05 }
+              ]
+            },
+            {
+              "name": "Long Jump",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 3 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "Shot Put",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+            {
+              "name": "Discus throw",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 1 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+            {
+              "name": "Javelin throw",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 6 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score":  3 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "100x4",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score":  0 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "400x4",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 0 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score":  0 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            }
+            ]
+        },
+        {
+          "name": "Under 20",
+          "events": [
+            {
+              "name": "100m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 1 },
+                { "house": "Vijaya", "score": 3 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "200m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 1 },
+                { "house": "Parakrama", "score": 5 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "400m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 6 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "800m Running",
+              "date" : "10/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 6 }
+              ]
+            },
+            {
+              "name": "1500m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 6 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "5000m Running",
+              "date" : "06/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 3 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 6 },
+                { "house": "Tissa", "score": 0 }
+              ]
+            },
+            {
+              "name": "Long Jump",
+              "date" : "10/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 6 },
+                { "house": "Vijaya", "score": 0 },
+                { "house": "Parakrama", "score": 0 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            },
+
+            {
+              "name": "Third Jump",
+              "date" : "10/03/2025",
+              "scores": [
+                { "house": "Gemunu", "score": 5 },
+                { "house": "Vijaya", "score": 3 },
+                { "house": "Parakrama", "score": 4 },
+                { "house": "Tissa", "score": 3 }
+              ]
+            }
+
+          ]
+        }
+      ]
+    };
+ const sportsData = {
+  "sports": [
+
+    {
+      "id": "Boxing",
+      "name": "Boxing",
+      "date": "10 /03/2025",
+      "venue": "Indoor Stadium",
+      "isLive": false,
+      "scores": [
+        { "house": "Gemunu", "score": 05 },
+        { "house": "Tissa", "score": 10 },
+        { "house": "Parakrama", "score": 15 },
+        { "house": "Vijaya", "score": 0 }
+      ]
+    },
+
+    {
+      "id": "Football",
+      "name": "Football",
+      "date": "07 /03/2025",
+      "venue": "Main Ground",
+      "isLive": false,
+      "scores": [
+        { "house": "Gemunu", "score": 05 },
+        { "house": "Tissa", "score": 10 },
+        { "house": "Parakrama", "score": 15 },
+        { "house": "Vijaya", "score": 0 }
+      ]
+    },
+
+
+    {
       "id": "Swimming",
       "name": "Swimming",
       "date": "03/03/2025",
       "venue": "Swimming Pool",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 15
-      }, {
-      "house": "Tissa",
-      "score": 05
-      }, {
-      "house": "Parakrama",
-      "score": 10
-      }, {
-      "house": "Vijaya",
-      "score": 0
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 15 },
+        { "house": "Tissa", "score": 5 },
+        { "house": "Parakrama", "score": 10 },
+        { "house": "Vijaya", "score": 0 }
+      ]
+    },
+    {
       "id": "Tag-Rugby",
-      "name": "Tag-Rugby",
+      "name": "Tag Rugby",
       "date": "03/03/2025",
       "venue": "Main Ground",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 0
-      }, {
-      "house": "Tissa",
-      "score": 15
-      }, {
-      "house": "Parakrama",
-      "score": 10
-      }, {
-      "house": "Vijaya",
-      "score": 05
-      }]
-      },
-      {
-      "id": "Road Race",
+      "scores": [
+        { "house": "Gemunu", "score": 0 },
+        { "house": "Tissa", "score": 15 },
+        { "house": "Parakrama", "score": 10 },
+        { "house": "Vijaya", "score": 5 }
+      ]
+    },
+    {
+      "id": "Road-Race",
       "name": "Road Race",
       "date": "28/02/2025",
       "venue": "In Road",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 20
-      }, {
-      "house": "Tissa",
-      "score": 25
-      }, {
-      "house": "Parakrama",
-      "score": 15
-      }, {
-      "house": "Vijaya",
-      "score": 10
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 20 },
+        { "house": "Tissa", "score": 25 },
+        { "house": "Parakrama", "score": 15 },
+        { "house": "Vijaya", "score": 10 }
+      ]
+    },
+    {
       "id": "Badminton",
       "name": "Badminton",
       "date": "27/02/2025",
-      "venue": "Makro ",
+      "venue": "Makro",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 05
-      }, {
-      "house": "Tissa",
-      "score": 0
-      }, {
-      "house": "Parakrama",
-      "score": 12.5
-      }, {
-      "house": "Vijaya",
-      "score": 12.5
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 5 },
+        { "house": "Tissa", "score": 0 },
+        { "house": "Parakrama", "score": 12.5 },
+        { "house": "Vijaya", "score": 12.5 }
+      ]
+    },
+    {
       "id": "Chess",
       "name": "Chess",
       "date": "25/02/2025",
       "venue": "Grade 07 Section",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 10
-      }, {
-      "house": "Tissa",
-      "score": 2.5
-      }, {
-      "house": "Parakrama",
-      "score": 15
-      }, {
-      "house": "Vijaya",
-      "score": 2.5
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 10 },
+        { "house": "Tissa", "score": 2.5 },
+        { "house": "Parakrama", "score": 15 },
+        { "house": "Vijaya", "score": 2.5 }
+      ]
+    },
+    {
       "id": "Volleyball",
       "name": "Volleyball",
       "date": "24/02/2025",
       "venue": "Main Ground",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 5
-      }, {
-      "house": "Tissa",
-      "score": 15
-      }, {
-      "house": "Parakrama",
-      "score": 0
-      }, {
-      "house": "Vijaya",
-      "score": 10
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 5 },
+        { "house": "Tissa", "score": 15 },
+        { "house": "Parakrama", "score": 0 },
+        { "house": "Vijaya", "score": 10 }
+      ]
+    },
+    {
       "id": "Elle",
       "name": "Elle",
       "date": "21/02/2025",
       "venue": "Main Ground",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 15
-      }, {
-      "house": "Tissa",
-      "score": 5
-      }, {
-      "house": "Parakrama",
-      "score": 10
-      }, {
-      "house": "Vijaya",
-      "score": 0
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 15 },
+        { "house": "Tissa", "score": 5 },
+        { "house": "Parakrama", "score": 10 },
+        { "house": "Vijaya", "score": 0 }
+      ]
+    },
+    {
       "id": "Hockey",
       "name": "Hockey",
       "date": "20/02/2025",
       "venue": "Main Ground",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 0
-      }, {
-      "house": "Tissa",
-      "score": 15
-      }, {
-      "house": "Parakrama",
-      "score": 5
-      }, {
-      "house": "Vijaya",
-      "score": 10
-      }]
-      },
-      {
+      "scores": [
+        { "house": "Gemunu", "score": 0 },
+        { "house": "Tissa", "score": 15 },
+        { "house": "Parakrama", "score": 5 },
+        { "house": "Vijaya", "score": 10 }
+      ]
+    },
+    {
       "id": "Softball",
       "name": "Softball",
       "date": "19/02/2025",
       "venue": "Main Ground",
       "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 15
-      }, {
-      "house": "Tissa",
-      "score": 5
-      }, {
-      "house": "Parakrama",
-      "score": 0
-      }, {
-      "house": "Vijaya",
-      "score": 10
-      }]
-      },
-      {
-      "id": "BasketBall",
-      "name": "BasketBall",
-      "date": "19/02/2025",
-      "venue": "BasketBall Court",
-      "isLive": false,
-      "scores": [{
-      "house": "Gemunu",
-      "score": 5
-      }, {
-      "house": "Tissa",
-      "score": 15
-      }, {
-      "house": "Parakrama",
-      "score": 10
-      }, {
-      "house": "Vijaya",
-      "score": 0
-      }]
-      }
+      "scores": [
+        { "house": "Gemunu", "score": 15 },
+        { "house": "Tissa", "score": 5 },
+        { "house": "Parakrama", "score": 0 },
+        { "house": "Vijaya", "score": 10 }
       ]
-    };
+    },
+    {
+      "id": "Basketball",
+      "name": "Basketball",
+      "date": "19/02/2025",
+      "venue": "Basketball Court",
+      "isLive": false,
+      "scores": [
+        { "house": "Gemunu", "score": 5 },
+        { "house": "Tissa", "score": 15 },
+        { "house": "Parakrama", "score": 10 },
+        { "house": "Vijaya", "score": 0 }
+      ]
+    }
+  ]
+};
+
    
     const momentsData = {
       "moments": [
@@ -377,6 +764,7 @@
         "title": "Tag-Rugby Championship Final",
         "description": "A fast-paced tag rugby game concludes with a lightning-quick dodge and a game-winning try!",
         "house": "Tissa",
+        "album":"https://web.facebook.com/share/p/16AZ89LLdX/",
         "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Tag-Rugby/481509527_1206375371491734_2598653844130955176_n.jpg?raw=true"
         },
         {
@@ -384,6 +772,7 @@
         "title": "Badminton Championship Final",
         "description": "A thrilling badminton match ends with a spectacular smash securing victory!",
         "house": "Vijaya",
+        "album":"https://web.facebook.com/share/p/12DwV6oMERB/",
         "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Badminton/481947705_1201495678646370_3815352414909344404_n.jpg"
         },
         {
@@ -391,6 +780,7 @@
         "title": "Chess Championship Final",
         "description": "A tense chess battle reaches its climax as a brilliant checkmate secures the decisive victory!",
         "house": "Parakrama",
+        "album":"https://web.facebook.com/share/p/1BJSzFakk6/",
         "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Chess/FB_IMG_1741564404128.jpg?raw=true"
         },
         {
@@ -398,6 +788,7 @@
         "title": "Volleyball Championship Final",
         "description": "A thrilling volleyball match reaches its climax as a powerful spike seals the game-winning point!",
         "house": "Tissa",
+        "album":"https://web.facebook.com/share/p/1BayHpvBu6/",
         "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Volleyball/481777854_1206507628145175_230429400909542038_n.jpg?raw=true"
         },
         {
@@ -405,21 +796,16 @@
         "title": "Elle Championship Final",
         "description": "Elle secures a stunning win in the final moments",
         "house": "Gemunu",
+        "album":"https://web.facebook.com/share/p/15FsNmbdyk/",
         "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Elle/481293868_1198761235586481_6186605271315011251_n.jpg?raw=true"
         },
-                {
-        "id": "Hockey-final",
-        "title": "Hockey Champions",
-        "description": "Epic hockey showdown ends with a last-second goal for the win!",
-        "house": "Tissa",
-        "album" : "https://www.facebook.com/share/1AxfYa7xmV/",
-        "image": "https://github.com/bcteamcdc/SportMeet-Marks-Board-2025/blob/main/Images/Hockey/FB_IMG_1741650974735.jpg?raw=true"
-    },
+        
         {
         "id": "Softball-final",
         "title": "Softball Championship Final",
         "description": "A dramatic softball showdown ends with a clutch hit securing the victory!",
         "house": "Gemunu",
+        "album":"https://web.facebook.com/share/p/15TioPZ4pL/",
         "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/refs/heads/main/Images/Softball/480703812_1201348868661051_1014252395281935854_n.jpg"
         },
         {
@@ -427,43 +813,38 @@
         "title": "BasketBall Champions",
         "description": "Epic basketball showdown ends with a buzzer-beater win",
         "house": "Tissa",
+        "album":"https://web.facebook.com/share/p/15aWoAKz4R/",
         "image": "https://raw.githubusercontent.com/bcteamcdc/SportMeet-Marks-Board-2025/main/Images/BasketBall/480881746_1198555862273685_2223825316418136102_n.jpg"
         }
       ]
     };
-
     const scoresTab = document.getElementById('scores-tab');
     const leaderboardTab = document.getElementById('leaderboard-tab');
     const momentsTab = document.getElementById('moments-tab');
-
     const scoresPage = document.getElementById('scores-page');
     const leaderboardPage = document.getElementById('leaderboard-page');
     const momentsPage = document.getElementById('moments-page');
-    // House details page elements
     const houseDetailsPage = document.getElementById('house-details-page');
     const houseSportsContainer = document.getElementById('house-sports-container');
     const houseDetailsTitle = document.getElementById('house-details-title');
     const backButton = document.getElementById('back-to-leaderboard');
-
-  const momentsContainer = document.getElementById('moments-container');
+    const athleticsDetailsPage = document.getElementById('athletics-details-page');
+    const athleticsContainer = document.getElementById('athletics-container');
+    const backToScoresButton = document.getElementById('back-to-scores');
+    const momentsContainer = document.getElementById('moments-container');
     const slideshowContainer = document.getElementById('slideshow-container');
     const slideshowControls = document.getElementById('slideshow-controls');
-
     const sportsContainer = document.getElementById('sports-container');
     const rankingsContainer = document.getElementById('rankings-container');
-    const lastUpdateDate = document.getElementById('last-update-date');
-
-    // Slideshow variables
     let currentSlide = 0;
     let slideshowInterval;
-    const slideshowDelay = 2000; // 5 seconds between slides
-
-
+    const slideshowDelay = 2000;
     function showPage(pageElement) {
       scoresPage.style.display = 'none';
       leaderboardPage.style.display = 'none';
       momentsPage.style.display = 'none';
-      houseDetailsPage.style.display = 'none'; // Hide the house details page
+      houseDetailsPage.style.display = 'none'; 
+      athleticsDetailsPage.style.display = 'none';
 
       pageElement.style.display = 'block';
       
@@ -499,10 +880,17 @@
       setActiveTab(momentsTab);
     });
 
-    // Back button event listener
+    // Back button event listener for house details
     backButton.addEventListener('click', () => {
       showPage(leaderboardPage);
       setActiveTab(leaderboardTab);
+    });
+    
+    // Back button event listener for athletics details
+    backToScoresButton.addEventListener('click', () => {
+      showPage(scoresPage);
+
+      setActiveTab(scoresTab);
     });
 
     function getMaxScore(scores) {
@@ -517,6 +905,12 @@
 
         const sportCard = document.createElement('div');
         sportCard.className = 'sport-card';
+        
+        // Set data attribute and add click event for Athletics card
+        if (sport.id === "Athletics") {
+          sportCard.dataset.sport = "Athletics";
+          sportCard.addEventListener('click', () => showAthleticsDetails());
+        }
 
         let sportContent = `
         <div class="sport-header">
@@ -542,12 +936,18 @@
           </div>
           `;
         });
+        
+        // Add "See more details" link for Athletics card
+        if (sport.id === "Athletics") {
+          sportContent += `
+          <div class="see-more-link"><center>You can see more details - Click on this card</center></div>
+          `;
+        }
 
         sportCard.innerHTML = sportContent;
         sportsContainer.appendChild(sportCard);
       });
     }
-
     function calculateTotalPoints() {
       const houses = {
         "Vijaya": {
@@ -605,15 +1005,117 @@
         rankingsContainer.appendChild(rankCard);
       });
     }
-
-    // Function to show details of a specific house
     function showHouseDetails(houseName) {
       showPage(houseDetailsPage); // Show house details page
       houseDetailsTitle.textContent = `${houseName} House Details`; // Set the title
       renderHouseSports(houseName); // Render sports for the house
     }
+    function showAthleticsDetails() {
+      showPage(athleticsDetailsPage); // Show athletics details page
+      renderAthleticsDetails(); // Render athletics details
+    }
 
-    // Function to render sports for a specific house
+function renderAthleticsDetails() {
+  athleticsContainer.innerHTML = ''; 
+  athleticsData.categories.forEach(category => {
+    // Create category group container
+    const categoryGroup = document.createElement('div');
+    categoryGroup.className = 'category-group';
+    const categoryHeader = document.createElement('div');
+    categoryHeader.className = 'category-header';
+    categoryHeader.textContent = category.name;
+    categoryGroup.appendChild(categoryHeader);
+    
+    const categoryEvents = document.createElement('div');
+    categoryEvents.className = 'category-events';
+    
+    category.events.forEach(event => {
+      const eventCard = document.createElement('div');
+      eventCard.className = 'event-card';
+      
+      const eventHeaderContainer = document.createElement('div');
+      eventHeaderContainer.className = 'event-header';
+      
+      // Event name on the left
+      const eventName = document.createElement('span');
+      eventName.className = 'event-name';
+      eventName.textContent = event.name;
+      
+      // Event location in the middle
+      const eventLocation = document.createElement('span');
+      eventLocation.className = 'event-location';
+      eventLocation.textContent = event.location || ''; // Use event.location if available
+      
+      // Date on the right
+      const eventDate = document.createElement('span');
+      eventDate.className = 'event-date';
+      eventDate.textContent = event.date || ''; // Use event.date if available
+          
+      // Add all elements to header container
+      eventHeaderContainer.appendChild(eventName);
+      eventHeaderContainer.appendChild(eventLocation);
+      eventHeaderContainer.appendChild(eventDate);
+      eventCard.appendChild(eventHeaderContainer);
+      
+      // Create event results section
+      const eventResults = document.createElement('div');
+      eventResults.className = 'event-results';
+      
+      // Find the highest score for progress bar calculation
+      const maxScore = Math.max(...event.scores.map(item => item.score));
+      
+      // Sort houses alphabetically by house name
+      const sortedHouses = [...event.scores]
+        .sort((a, b) => a.house.localeCompare(b.house));
+      
+      // Add each house's result
+      sortedHouses.forEach(score => {
+        const percentage = maxScore > 0 ? (score.score / maxScore) * 100 : 0;
+        
+        // Create position result row
+        const positionResult = document.createElement('div');
+        positionResult.className = 'position-result';
+        
+        // Colored dot indicator (matching the image)
+        const colorDot = document.createElement('div');
+        colorDot.className = `color-dot ${score.house.toLowerCase()}`;
+        
+        // House name
+        const houseName = document.createElement('div');
+        houseName.className = `house-name ${score.house.toLowerCase()}`;
+        houseName.textContent = score.house;
+        
+        // Score display - Make this more prominent
+        const scoreValue = document.createElement('div');
+        scoreValue.className = 'score-value';
+        scoreValue.textContent = score.score;
+        
+        // Append elements to position result
+        positionResult.appendChild(colorDot);
+        positionResult.appendChild(houseName);
+        positionResult.appendChild(scoreValue); // Add score directly in position row
+        eventResults.appendChild(positionResult);
+        
+        // Add progress bar
+        const progressContainer = document.createElement('div');
+        progressContainer.className = 'progress-container';
+        
+        const progressBar = document.createElement('div');
+        progressBar.className = `progress-bar ${score.house.toLowerCase()}`;
+        progressBar.style.width = `${percentage}%`;
+        
+        progressContainer.appendChild(progressBar);
+        eventResults.appendChild(progressContainer);
+      });
+      
+      eventCard.appendChild(eventResults);
+      categoryEvents.appendChild(eventCard);
+    });
+    
+    categoryGroup.appendChild(categoryEvents);
+    athleticsContainer.appendChild(categoryGroup);
+  });
+}
     function renderHouseSports(houseName) {
       houseSportsContainer.innerHTML = ''; // Clear existing content
 
@@ -650,13 +1152,9 @@
         houseSportsContainer.appendChild(sportCard);
       });
     }
-
-    // Function to create slideshow
     function createSlideshow() {
       slideshowContainer.innerHTML = '';
       slideshowControls.innerHTML = '';
-      
-      // Create slides
       momentsData.moments.forEach((moment, index) => {
         const slide = document.createElement('div');
         slide.className = `slideshow-slide ${index === 0 ? 'active' : ''}`;
@@ -674,8 +1172,6 @@
         `;
         
         slideshowContainer.appendChild(slide);
-        
-        // Create indicator
         const indicator = document.createElement('div');
         indicator.className = `slideshow-indicator ${index === 0 ? 'active' : ''}`;
         indicator.dataset.slideIndex = index;
@@ -686,82 +1182,76 @@
         slideshowControls.appendChild(indicator);
       });
     }
-
-    // Function to go to specific slide
     function goToSlide(index) {
       const slides = document.querySelectorAll('.slideshow-slide');
       const indicators = document.querySelectorAll('.slideshow-indicator');
-      
-      // Hide all slides and remove active class from indicators
       slides.forEach(slide => slide.classList.remove('active'));
       indicators.forEach(indicator => indicator.classList.remove('active'));
-      
-      // Show selected slide and activate its indicator
       slides[index].classList.add('active');
       indicators[index].classList.add('active');
-      
-      // Update current slide index
       currentSlide = index;
-      
-      // Reset slideshow timer
       resetSlideshowTimer();
     }
-
-    // Function to go to next slide
     function nextSlide() {
       const slides = document.querySelectorAll('.slideshow-slide');
       const nextIndex = (currentSlide + 1) % slides.length;
       goToSlide(nextIndex);
     }
-
-    // Function to start slideshow
     function startSlideshow() {
       if (!slideshowInterval) {
         slideshowInterval = setInterval(nextSlide, slideshowDelay);
       }
     }
-
-    // Function to stop slideshow
     function stopSlideshow() {
       if (slideshowInterval) {
         clearInterval(slideshowInterval);
         slideshowInterval = null;
       }
     }
-
-    // Function to reset slideshow timer
     function resetSlideshowTimer() {
       stopSlideshow();
       startSlideshow();
     }
-        function renderMoments() {
-            momentsContainer.innerHTML = '';
-            
-            momentsData.moments.forEach(moment => {
-                const momentCard = document.createElement('div');
-                momentCard.className = 'moment-card';
-               
-                const imagePath = moment.image || `/api/placeholder/400/200`;
-                const houseColor = moment.house.toLowerCase();
-                
-                momentCard.innerHTML = `
-                    <img src="${imagePath}" alt="${moment.title}" class="moment-image">
-                    <div class="moment-content">
-                        <div class="moment-title">${moment.title}</div>
-                        <div class="moment-description">${moment.description}</div>
-                        <div class="moment-house">
-                            <span class="house-icon ${houseColor}">🏠</span>
-                            <span class="moment-house-name ${houseColor}">${moment.house} House</span>
-                        </div>
-                    </div>
-                `;
-                
-                momentsContainer.appendChild(momentCard);
-            });
-        }
+    
+    function renderMoments() {
+  momentsContainer.innerHTML = '';
+  
+  momentsData.moments.forEach(moment => {
+    const momentCard = document.createElement('div');
+    momentCard.className = 'moment-card';
+   
+    const imagePath = moment.image || `/api/placeholder/400/200`;
+    const houseColor = moment.house.toLowerCase();
+    
+    // Add album link in the same line as the house name
+    const albumLink = moment.album ? 
+      `<a href="${moment.album}" class="view-album-link">
+  📸 View Album
+</a>` : 
+      '';
+    
+    momentCard.innerHTML = `
+      <img src="${imagePath}" alt="${moment.title}" class="moment-image">
+      <div class="moment-content">
+        <div class="moment-title">${moment.title}</div>
+        <div class="moment-description">${moment.description}</div>
+        <div class="moment-footer">
+          <div class="moment-house">
+            <span class="house-icon ${houseColor}">🏠</span>
+            <span class="moment-house-name ${houseColor}">${moment.house} House</span>
+          </div>
+          ${albumLink}
+        </div>
+      </div>
+    `;
+    
+    momentsContainer.appendChild(momentCard);
+  });
+}
+    
     renderSports();
     renderRankings();
-  renderMoments();
+    renderMoments();
     createSlideshow();
     showPage(leaderboardPage);
     setActiveTab(leaderboardTab);
