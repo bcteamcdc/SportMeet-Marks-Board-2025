@@ -191,11 +191,18 @@ header::before {
 .header-title {
   font-size: 1.4rem;
   font-weight: 700;
-  background: var(--light-gray);
+  font-style: normal;
+  background: #ef4444; /* Your primary text color */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.01em;
+  
+  /* --- Added Glow Effect --- */
+  text-shadow: 
+    0 0 5px var(--bright-red),   /* Softer, tighter glow */
+    0 0 10px var(--bright-red),  /* Medium glow */
+    0 0 20px rgba(206, 18, 18, 0.7); /* Wider, slightly more diffuse glow with a direct red color or --shadow-glow variable if you prefer */
 }
 
 .trophy-icon {
@@ -802,7 +809,14 @@ header::before {
 .footer-socials {
   margin: 1rem 0;
 }
+.officialweblink {
+  color: var(--vijaya-color);
+  transition: color 0.3s ease-in-out; 
+}
 
+.officialweblink:hover {
+  color: var(--bright-red); 
+}
 .social-icon {
   display: inline-flex;
   align-items: center;
@@ -1659,5 +1673,3 @@ footer::before {
     border-width: 3px;
   }
 }
-
-
