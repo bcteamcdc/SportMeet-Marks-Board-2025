@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InterHouse Sports Scores</title>
+  <title>InterHouse Sports Scores 2025</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,7 +21,7 @@
         <div class="profile-icon"></div>
         <div class="club-icon"></div>
         <div class="trophy-icon">🏆</div>
-        <div class="header-title">InterHouse Sports Scores</div>
+        <div class="header-title">InterHouse Sports Scores 2025</div>
       </div>
       <div class="nav-tabs">
         <a class="nav-tab" id="leaderboard-tab">Leaderboard</a>
@@ -557,6 +557,7 @@ function calculateTotalPoints() {
             positionResult.appendChild(scoreValue);
             eventResults.appendChild(positionResult);
             
+            // Progress Bar
             const progressContainer = document.createElement('div');
             progressContainer.className = 'progress-container';
             
@@ -576,6 +577,8 @@ function calculateTotalPoints() {
         athleticsContainer.appendChild(categoryGroup);
       });
     }
+
+    // Slideshow Functions
     function createSlideshow() {
       slideshowContainer.innerHTML = '';
       slideshowControls.innerHTML = '';
@@ -604,39 +607,50 @@ function calculateTotalPoints() {
         indicator.addEventListener('click', () => {
           goToSlide(index);
         });
+        
         slideshowControls.appendChild(indicator);
       });
     }
+
     function goToSlide(index) {
       const slides = document.querySelectorAll('.slideshow-slide');
       const indicators = document.querySelectorAll('.slideshow-indicator');
+      
       slides.forEach(slide => slide.classList.remove('active'));
       indicators.forEach(indicator => indicator.classList.remove('active'));
+      
       slides[index].classList.add('active');
       indicators[index].classList.add('active');
+      
       currentSlide = index;
       resetSlideshowTimer();
     }
+
     function nextSlide() {
       const slides = document.querySelectorAll('.slideshow-slide');
       const nextIndex = (currentSlide + 1) % slides.length;
       goToSlide(nextIndex);
     }
+
     function startSlideshow() {
       if (!slideshowInterval) {
         slideshowInterval = setInterval(nextSlide, slideshowDelay);
       }
     }
+
     function stopSlideshow() {
       if (slideshowInterval) {
         clearInterval(slideshowInterval);
         slideshowInterval = null;
       }
     }
+
     function resetSlideshowTimer() {
       stopSlideshow();
       startSlideshow();
     }
+
+    // Moments Functions
     function renderMoments() {
       momentsContainer.innerHTML = '';
       
@@ -664,15 +678,20 @@ function calculateTotalPoints() {
             </div>
           </div>
         `;
+        
         momentsContainer.appendChild(momentCard);
       });
     }
+
+    // Analytics Chart Functions
     const houseColors = {
       'Gemunu': '#2563EB',
       'Vijaya': '#DC2626', 
       'Parakrama': '#FBBF24',
       'Tissa': '#16A34A'
     };
+
+    // Chart Variables
     const houseOptions = document.getElementById('house-options');
     const sportOptions = document.getElementById('sport-options');
     const timeRangeOptions = document.getElementById('time-range-options');
@@ -680,6 +699,7 @@ function calculateTotalPoints() {
     const barChartBtn = document.getElementById('bar-chart-btn');
     const chartDescription = document.getElementById('chart-description');
     const chartCanvas = document.getElementById('performance-chart');
+
     let performanceChart = null;
     let currentState = {
       selectedHouse: "All Houses",
@@ -687,8 +707,11 @@ function calculateTotalPoints() {
       chartType: "line",
       timeRange: "5"
     };
+
+    // Filter Options Handler
     function setupFilterOptions(container, stateKey) {
       const options = container.querySelectorAll('.filter-option');
+      
       options.forEach(option => {
         option.addEventListener('click', () => {
           options.forEach(opt => opt.classList.remove('active'));
@@ -699,6 +722,8 @@ function calculateTotalPoints() {
         });
       });
     }
+
+    // Initialize Chart
     function initChart() {
       setupFilterOptions(houseOptions, 'selectedHouse');
       setupFilterOptions(sportOptions, 'selectedSport');
@@ -706,13 +731,17 @@ function calculateTotalPoints() {
       updateChartData();
       updateDescription();
     }
+
+    // Transform Data for Chart
     function transformData() {
       const yearsToInclude = historicalData
         .filter(item => item.year > 2025 - parseInt(currentState.timeRange))
         .map(item => item.year);
+      
       const filteredData = historicalData.filter(item => yearsToInclude.includes(item.year));
       const labels = filteredData.map(item => item.year);
       const datasets = [];
+      
       const houses = currentState.selectedHouse === "All Houses" 
         ? ["Gemunu", "Vijaya", "Parakrama", "Tissa"] 
         : [currentState.selectedHouse];
@@ -737,12 +766,15 @@ function calculateTotalPoints() {
       
       return { labels, datasets };
     }
+
+    // Update Chart Data
     function updateChartData() {
       const chartData = transformData();
       
       if (performanceChart) {
         performanceChart.destroy();
       }
+      
       const ctx = chartCanvas.getContext('2d');
       performanceChart = new Chart(ctx, {
         type: currentState.chartType,
@@ -814,6 +846,8 @@ function calculateTotalPoints() {
         }
       });
     }
+
+    // Update Chart Description
     function updateDescription() {
       const houseText = currentState.selectedHouse === "All Houses" 
         ? "performance of all houses" 
@@ -831,18 +865,23 @@ function calculateTotalPoints() {
       
       chartDescription.textContent = `This chart shows the ${houseText} in ${sportText} over the ${timeText}.`;
     }
+
+    // Chart Type Toggle Event Listeners
     lineChartBtn.addEventListener('click', () => {
       currentState.chartType = 'line';
       lineChartBtn.classList.add('active');
       barChartBtn.classList.remove('active');
       updateChartData();
     });
+
     barChartBtn.addEventListener('click', () => {
       currentState.chartType = 'bar';
       barChartBtn.classList.add('active');
       lineChartBtn.classList.remove('active');
       updateChartData();
     });
+
+    // Initialize Application
     function initializeApp() {
       renderSports();
       renderRankings();
@@ -851,6 +890,8 @@ function calculateTotalPoints() {
       showPage(leaderboardPage);
       setActiveTab(leaderboardTab);
     }
+
+    // Start the application when DOM is loaded
     document.addEventListener('DOMContentLoaded', initializeApp);
   window.addEventListener("load", () => {
     setTimeout(() => {
