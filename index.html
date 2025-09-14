@@ -40,6 +40,36 @@
         <span>Overall House Rankings 2025</span>
       </div>
       <div class="rankings-grid" id="rankings-container"></div>
+      
+      <br><br>
+      <!-- App Download Section -->
+<div class="app-download-section">
+  <div class="app-section-header">
+    <h2 class="app-section-title">📱 Download Mobile App</h2>
+    <p class="app-section-subtitle">Get the InterHouse Sports Scores 2025 mobile app for real-time updates and offline access</p>
+  </div>
+
+  <div class="app-files-grid">
+    <!-- Android APK File -->
+    <div class="app-file-card">
+      <div class="file-icon-container apk-icon">
+        <div class="file-icon">📱</div>
+      </div>
+      <div class="file-info">
+        <div class="file-name">InterHouse Sports Score 2025</div>
+        <span class="file-extension">.APK</span>
+        <div class="file-details">
+          <span class="file-size">12.5 MB</span>
+          <span class="file-version">v1.0.2</span>
+        </div>
+        <a href="#" class="download-button">
+          <span>📥</span>
+          Download for Android
+        </a>
+      </div>
+    </div>
+    </div>
+  </div>
     </div>
     
     <!-- Scores Page -->
@@ -205,19 +235,19 @@
   </div>
 
   <div class="footer-socials">
-    <a href="https://wa.me/94771234567" target="_blank" class="social-icon whatsapp" title="WhatsApp">
+    <a href="https://whatsapp.com/channel/0029Vb8DCeW0bIddkcNUZ51J" target="_blank" class="social-icon whatsapp" title="WhatsApp">
       <i class="fab fa-whatsapp"></i>
     </a>
     <a href="https://facebook.com/bandaranayakecollege" target="_blank" class="social-icon facebook" title="Facebook">
       <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://instagram.com/bandaranayakecollege" target="_blank" class="social-icon instagram" title="Instagram">
+    <a href="https://www.instagram.com/teamcdcbc?igsh=d2RkbTVvMXl5aTRk" target="_blank" class="social-icon instagram" title="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
   </div>
 
   <div class="footer-bottom">
-    <span>© 2025 Bandaranayake College Coding Club. All rights reserved.</span><br>
+<span>© 2025 Bandaranayake College <a class="officialweblink" href="https://teamcdc.netlify.app">Coding Club</a>. All rights reserved.</span><br>
      <span class="last-updated">Last Updated: <span id="last-update-date">Aug 08, 2025</span></span>
   </div>
 </footer>
@@ -227,6 +257,12 @@
   <script src="sportsdata.js"></script>
   
   <script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loadingScreen").classList.add("hidden");
+  }, 1000); // 1000ms = 1s
+});
+
     // DOM Elements - Navigation and Pages
     const scoresTab = document.getElementById('scores-tab');
     const leaderboardTab = document.getElementById('leaderboard-tab');
@@ -893,11 +929,8 @@ function calculateTotalPoints() {
 
     // Start the application when DOM is loaded
     document.addEventListener('DOMContentLoaded', initializeApp);
-  window.addEventListener("load", () => {
-      document.getElementById("loadingScreen").classList.add("hidden");
-  });
+
   </script>
 </body>
 
 </html>
-
