@@ -31,10 +31,8 @@
       </div>
     </header>
     
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-logo"></div>
-
-  </div>
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-logo"></div>
 
     </div>
 
@@ -355,11 +353,11 @@
   <script src="sportsdata.js"></script>
   
   <script>
-          window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("loadingScreen").classList.add("hidden");
-      }, 2000); // Increased to 5000ms to allow typing animation to complete
-    });
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loadingScreen").classList.add("hidden");
+  }, 1000); // 1000ms = 1s
+});
 
     // DOM Elements - Navigation and Pages
     const scoresTab = document.getElementById('scores-tab');
@@ -1032,5 +1030,3 @@ function calculateTotalPoints() {
 </body>
 
 </html>
-
-
