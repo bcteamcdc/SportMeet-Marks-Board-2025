@@ -40,7 +40,7 @@
       --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    /* Loading Screen */
+   /* Loading Screen */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -48,10 +48,10 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(135deg, 
-        rgba(239, 68, 68, 0.95) 0%, 
-        rgba(124, 10, 2, 0.9) 50%, 
-        rgba(10, 10, 10, 0.95) 100%);
-      backdrop-filter: blur(10px);
+        rgba(20, 20, 20, 0.6) 0%, /* Increased transparency */
+        rgba(200, 10, 10, 0.55) 50%, 
+        rgba(0, 0, 0, 0.6) 100%);
+      backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -60,6 +60,7 @@
       opacity: 1;
       visibility: visible;
       transition: opacity 0.8s ease, visibility 0.8s ease;
+      animation: backgroundPulse 5s ease-in-out infinite;
     }
 
     .loading-screen.hidden {
@@ -67,26 +68,26 @@
       visibility: hidden;
     }
 
+    @keyframes backgroundPulse {
+      0% { background: linear-gradient(135deg, rgba(20, 20, 20, 0.6) 0%, rgba(200, 10, 10, 0.55) 50%, rgba(0, 0, 0, 0.6) 100%); }
+      50% { background: linear-gradient(135deg, rgba(50, 50, 50, 0.65) 0%, rgba(255, 20, 20, 0.6) 50%, rgba(30, 30, 30, 0.65) 100%); }
+      100% { background: linear-gradient(135deg, rgba(20, 20, 20, 0.6) 0%, rgba(200, 10, 10, 0.55) 50%, rgba(0, 0, 0, 0.6) 100%); }
+    }
+
     .loading-logo {
-      width: 180px;
-      height: 180px;
-      background-image: url('https://i.ibb.co/x8H49CbB/New-Project-1-1.png');
+      width: 250px;
+      height: 250px;
+      background-image: url('https://i.ibb.co/4RPrWwcJ/New-Logo-Enhnaced-5.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       margin-bottom: 2rem;
       filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8));
-      animation: fadeLogo 3s ease-in-out infinite;
     }
-@keyframes fadeLogo {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
+
     .loading-text {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      color: var(--white);
       text-align: center;
       margin-top: 1rem;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
@@ -94,12 +95,49 @@
     }
 
     .typing-text {
-      border-right: 3px solid var(--white);
+      opacity: 0; /* Initially invisible */
+      border-right: 3px solid var(--white, #ffffff);
       white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(40, end) 1s both, blink 1s infinite 1s;
+      animation: typing 2s steps(20, end) 1s both, showText 0.1s 1s both, highlightGlow 2s ease-in-out 1s both;
+      animation-fill-mode: forwards;
     }
 
+    .team-part {
+      color: #000000; /* Black for #team */
+    }
+
+    .cdc-part {
+      color: #ff0000; /* Red for cdc */
+    }
+
+    @keyframes typing {
+      from { 
+        width: 0; 
+      }
+      to { 
+        width: 100%; 
+        border-right: none; /* Hide cursor after typing */
+      }
+    }
+
+    @keyframes showText {
+      to { 
+        opacity: 1; /* Make text visible when animation starts */
+      }
+    }
+
+    @keyframes highlightGlow {
+      0% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+      50% { text-shadow: 0 0 40px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 50, 50, 0.7); }
+      100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+    }
+
+    @keyframes textPulse {
+      0% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+      50% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+      100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+    }
     /* Reset and Base Styles */
     * {
       box-sizing: border-box;
@@ -2713,3 +2751,4 @@ footer::before {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
