@@ -1,0 +1,1401 @@
+/* ============================================
+   RESPONSIVE STYLES - Full Site Responsiveness
+   ============================================ */
+
+/* Global Word Wrap and Text Overflow */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, td, th,
+.page-title, .hcard-title, .chart-title,
+.stat-value, .stat-label, .filter-option,
+.sport-title, .house-name, .moment-title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Mobile Header Title - Always Visible */
+.brand-info {
+  display: flex !important;
+}
+
+/* ============================================
+   EXTRA LARGE SCREENS (1400px+)
+   ============================================ */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .analytics-section,
+  .dashboard-container {
+    max-width: 1400px;
+  }
+}
+
+/* ============================================
+   LARGE SCREENS (1200px - 1400px)
+   ============================================ */
+@media (max-width: 1399px) {
+  .container {
+    padding: 1.2rem;
+  }
+  
+  .analytics-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================================
+   MEDIUM-LARGE SCREENS (992px - 1200px)
+   ============================================ */
+@media (max-width: 1200px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .header-title {
+    font-size: 1.1rem;
+  }
+  
+  .header-subtitle {
+    font-size: 0.65rem;
+  }
+  
+  .sports-grid, .rankings-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .moments-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .analytics-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .hcard-title {
+    font-size: 1.5rem;
+  }
+  
+  .filters-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* ============================================
+   TABLET SCREENS (768px - 992px)
+   ============================================ */
+@media (max-width: 992px) {
+  .sports-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .rankings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .moments-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  
+  .club-content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-platforms {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   SMALL TABLET / LARGE MOBILE (768px)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Header Responsive */
+  header {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .header-brand {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .brand-logos {
+    padding: 0.35rem;
+    gap: 0.4rem;
+  }
+  
+  .brand-info {
+    display: flex !important;
+    text-align: center;
+  }
+  
+  .header-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .header-subtitle {
+    font-size: 0.6rem;
+    text-align: center;
+  }
+  
+  .header-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .nav-tab {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .nav-tab span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  .nav-tab i {
+    font-size: 1rem;
+  }
+  
+  /* Page Title */
+  .page-title {
+    font-size: 1.6rem;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0 1.5rem;
+    gap: 0.5rem;
+  }
+  
+  .page-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+  }
+  
+  .page-title-icon {
+    margin-right: 0;
+  }
+  
+  /* Grids */
+  .sports-grid, 
+  .rankings-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .moments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Cards */
+  .sport-card, 
+  .ranking-card, 
+  .event-card,
+  .moment-card {
+    padding: 1.2rem;
+  }
+  
+  .sport-title {
+    font-size: 1.1rem;
+  }
+  
+  .total-score {
+    font-size: 2.5rem;
+  }
+  
+  /* Analytics Section */
+  .analytics-section {
+    margin: 0 auto 1.5rem auto;
+  }
+  
+  .analytics-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .analytics-stat-card {
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+  
+  .stat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    border-radius: 0.8rem;
+  }
+  
+  .stat-value {
+    font-size: 1.3rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  
+  /* HCard - Analytics Cards */
+  .hcard {
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hcard-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .hcard-title-wrapper {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  
+  .hcard-icon {
+    font-size: 1.4rem;
+  }
+  
+  .hcard-title {
+    font-size: 1.2rem;
+    word-wrap: break-word;
+  }
+  
+  .hcard-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  /* Filters */
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-group {
+    gap: 0.8rem;
+  }
+  
+  .filter-label {
+    font-size: 0.9rem;
+  }
+  
+  .filter-options {
+    gap: 0.5rem;
+  }
+  
+  .filter-option {
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 1.5rem;
+  }
+  
+  .filter-label-container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tooltip {
+    display: none;
+  }
+  
+  /* Chart Type Toggle */
+  .chart-type-toggle {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .toggle-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    min-width: 120px;
+  }
+  
+  /* Chart Container */
+  .chart-container {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.2rem;
+    height: auto;
+    min-height: 300px;
+  }
+  
+  .chart-container canvas {
+    max-height: 280px !important;
+  }
+  
+  .chart-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .chart-title i {
+    font-size: 1rem;
+  }
+  
+  .chart-footer {
+    font-size: 0.85rem;
+    padding: 1rem;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+  }
+  
+  /* Sport Filter Buttons */
+  .sport-filter-buttons {
+    gap: 0.4rem;
+    padding: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: wrap;
+  }
+  
+  .sport-filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+  
+  /* Sport Breakdown Container */
+  .sport-breakdown-container {
+    padding: 1rem;
+  }
+  
+  .sport-chart-wrapper {
+    height: 220px;
+    margin-top: 0.8rem;
+  }
+  
+  /* Rankings Table */
+  .house-rankings-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .rankings-table {
+    min-width: 100%;
+    border-radius: 0.8rem;
+  }
+  
+  .rankings-table th,
+  .rankings-table td {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  
+  .rankings-table th {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Slideshow */
+  .slideshow-container {
+    border-radius: 1rem;
+  }
+  
+  .slideshow-wrapper {
+    height: 350px;
+  }
+  
+  .slideshow-image {
+    height: 350px;
+  }
+  
+  .slideshow-caption {
+    padding: 1.5rem;
+  }
+  
+  .slideshow-title {
+    font-size: 1.2rem;
+  }
+  
+  .slideshow-description {
+    font-size: 0.85rem;
+  }
+  
+  .slideshow-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .slideshow-arrow.prev {
+    left: 10px;
+  }
+  
+  .slideshow-arrow.next {
+    right: 10px;
+  }
+  
+  /* Athletics Container */
+  .athletics-container {
+    padding: 0.8rem;
+  }
+  
+  .category-header {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+  }
+  
+  .category-events {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  
+  .position-result {
+    padding: 0.8rem;
+  }
+  
+  /* App Download Section */
+  .app-download-section {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .app-section-title {
+    font-size: 1.3rem;
+    flex-wrap: wrap;
+  }
+  
+  .app-files-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .app-file-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+  }
+  
+  /* Coding Club Section */
+  .coding-club-section {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .club-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .website-card, 
+  .social-card {
+    padding: 1.2rem;
+  }
+  
+  .social-platforms {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .social-platform {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .social-platform .social-icon {
+    font-size: 1.5rem;
+  }
+  
+  .social-name {
+    font-size: 0.75rem;
+  }
+  
+  .social-handle {
+    font-size: 0.6rem;
+  }
+  
+  /* Photo Credits */
+  .photo-credits {
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .photo-credits span {
+    font-size: 0.85rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .footer-socials {
+    gap: 0.8rem;
+  }
+  
+  .footer-socials .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+  
+  /* Back Button */
+  .back-button {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* ============================================
+   MOBILE SCREENS (480px - 768px)
+   ============================================ */
+@media (max-width: 600px) {
+  .sports-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .analytics-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE SCREENS (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.6rem;
+  }
+  
+  /* Header - Compact Mobile */
+  header {
+    padding: 0.8rem;
+    gap: 0.6rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .brand-logos {
+    padding: 0.3rem;
+  }
+  
+  .club-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .profile-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  
+  .brand-info {
+    display: flex !important;
+  }
+  
+  .header-title {
+    font-size: 0.85rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .header-subtitle {
+    font-size: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  
+  .nav-tab {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  .nav-tab i {
+    font-size: 0.95rem;
+  }
+  
+  /* Page Title */
+  .page-title {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 1rem;
+    gap: 0.4rem;
+  }
+  
+  .page-title-icon {
+    font-size: 1.2rem;
+  }
+  
+  .page-title::after {
+    width: 60px;
+    height: 3px;
+    bottom: -10px;
+  }
+  
+  /* Cards */
+  .sport-card, 
+  .ranking-card, 
+  .event-card {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .sport-title {
+    font-size: 1rem;
+  }
+  
+  .sport-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .sport-date {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .total-score {
+    font-size: 2rem;
+  }
+  
+  .total-score::after {
+    font-size: 0.6rem;
+    right: -1.2rem;
+  }
+  
+  .house-ranking {
+    font-size: 1.2rem;
+  }
+  
+  .rank-number {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  /* Score Items */
+  .score-item {
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .house-name {
+    font-size: 0.75rem;
+  }
+  
+  .house-score {
+    font-size: 0.95rem;
+  }
+  
+  .house-score::after {
+    font-size: 0.45rem;
+  }
+  
+  .progress-container {
+    height: 5px;
+  }
+  
+  /* Analytics Stats */
+  .analytics-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  
+  .analytics-stat-card {
+    padding: 0.8rem;
+    gap: 0.6rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .stat-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    border-radius: 0.6rem;
+  }
+  
+  .stat-value {
+    font-size: 1.2rem;
+    line-height: 1.1;
+  }
+  
+  .stat-label {
+    font-size: 0.65rem;
+    margin-top: 0.2rem;
+  }
+  
+  /* HCard */
+  .hcard {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hcard-header {
+    margin-bottom: 1rem;
+  }
+  
+  .hcard-title-wrapper {
+    gap: 0.5rem;
+  }
+  
+  .hcard-icon {
+    font-size: 1.2rem;
+  }
+  
+  .hcard-title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  .hcard-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  /* Filters */
+  .filters-grid {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .filter-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .filter-options {
+    gap: 0.4rem;
+  }
+  
+  .filter-option {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Chart Toggle */
+  .chart-type-toggle {
+    gap: 0.5rem;
+  }
+  
+  .toggle-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    min-width: 100px;
+  }
+  
+  /* Chart Container */
+  .chart-container {
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    min-height: 250px;
+  }
+  
+  .chart-container canvas {
+    max-height: 220px !important;
+  }
+  
+  .chart-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.6rem;
+    gap: 0.4rem;
+  }
+  
+  .chart-title i {
+    font-size: 0.9rem;
+  }
+  
+  .chart-footer {
+    font-size: 0.75rem;
+    padding: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  /* Sport Filter Buttons - Horizontal Scroll */
+  .sport-filter-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.3rem;
+    padding: 0.4rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .sport-filter-buttons::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .sport-filter-btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+  
+  /* Sport Breakdown */
+  .sport-breakdown-container {
+    padding: 0.8rem;
+  }
+  
+  .sport-chart-wrapper {
+    height: 180px;
+    margin-top: 0.5rem;
+  }
+  
+  /* Rankings Table */
+  .house-rankings-table {
+    margin-top: 1.5rem;
+  }
+  
+  .rankings-table th,
+  .rankings-table td {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Slideshow */
+  .slideshow-wrapper {
+    height: 280px;
+  }
+  
+  .slideshow-image {
+    height: 280px;
+  }
+  
+  .slideshow-caption {
+    padding: 1rem;
+  }
+  
+  .slideshow-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .slideshow-description {
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .slideshow-house {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .slideshow-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .slideshow-controls {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .slideshow-indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  /* Moments */
+  .moment-card {
+    border-radius: 1rem;
+  }
+  
+  .moment-image-wrapper {
+    height: 180px;
+  }
+  
+  .moment-content {
+    padding: 1rem;
+  }
+  
+  .moment-title {
+    font-size: 1.1rem;
+  }
+  
+  .moment-description {
+    font-size: 0.8rem;
+  }
+  
+  .moment-house-badge {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .moment-album-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  /* Photo Credits */
+  .photo-credits {
+    padding: 0.8rem;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .photo-credits i {
+    font-size: 1rem;
+  }
+  
+  .photo-credits span {
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  /* Athletics */
+  .category-header {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .category-events {
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+  
+  .position-result {
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+  }
+  
+  .position-indicator {
+    width: 26px;
+    height: 26px;
+    font-size: 0.65rem;
+    margin-right: 0.6rem;
+  }
+  
+  .score-value {
+    font-size: 0.9rem;
+  }
+  
+  /* App Download */
+  .app-download-section {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
+  }
+  
+  .app-section-title {
+    font-size: 1.1rem;
+    gap: 0.4rem;
+  }
+  
+  .app-section-title i {
+    font-size: 1rem;
+  }
+  
+  .app-section-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .app-file-card {
+    padding: 1rem;
+  }
+  
+  .file-icon-container {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .file-icon {
+    font-size: 1.5rem;
+  }
+  
+  .file-name {
+    font-size: 0.9rem;
+  }
+  
+  .file-extension {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+  
+  .file-details {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .file-size, .file-version {
+    font-size: 0.8rem;
+  }
+  
+  .download-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.75rem;
+  }
+  
+  /* Coding Club */
+  .coding-club-section {
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .title-icon {
+    font-size: 1.1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .section-description {
+    font-size: 0.75rem;
+  }
+  
+  .website-card, 
+  .social-card {
+    padding: 1rem;
+  }
+  
+  .card-header {
+    gap: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+  
+  .card-icon {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .website-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .website-features .feature-item {
+    font-size: 0.8rem;
+    padding: 0.4rem 0;
+  }
+  
+  .social-platforms {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .social-platform {
+    padding: 0.6rem 0.3rem;
+    border-radius: 0.8rem;
+  }
+  
+  .social-platform .social-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .social-name {
+    font-size: 0.65rem;
+  }
+  
+  .social-handle {
+    font-size: 0.5rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 1rem 0.8rem;
+  }
+  
+  .footer-socials {
+    gap: 0.6rem;
+  }
+  
+  .footer-socials .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.7rem;
+    padding: 0.8rem;
+    line-height: 1.5;
+  }
+  
+  .last-updated {
+    font-size: 0.65rem;
+  }
+  
+  /* Back Button */
+  .back-button {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+    gap: 0.3rem;
+  }
+  
+  .back-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Loading Screen */
+  .loader-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loader-progress-container {
+    width: 220px;
+  }
+  
+  .loader-progress-text {
+    font-size: 1.5rem;
+  }
+  
+  .loading-status {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL SCREENS (360px and below)
+   ============================================ */
+@media (max-width: 360px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  header {
+    padding: 0.6rem;
+  }
+  
+  .header-title {
+    font-size: 0.75rem;
+  }
+  
+  .header-subtitle {
+    font-size: 0.45rem;
+  }
+  
+  .club-icon, .profile-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  
+  .nav-tab {
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .nav-tab i {
+    font-size: 0.85rem;
+  }
+  
+  .page-title {
+    font-size: 1.1rem;
+  }
+  
+  .analytics-stat-card {
+    padding: 0.6rem;
+  }
+  
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  
+  .stat-value {
+    font-size: 1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .hcard-title {
+    font-size: 0.9rem;
+  }
+  
+  .filter-option {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.65rem;
+  }
+  
+  .toggle-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    min-width: 85px;
+  }
+  
+  .chart-title {
+    font-size: 0.8rem;
+  }
+  
+  .sport-filter-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.6rem;
+  }
+  
+  .rankings-table th,
+  .rankings-table td {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.65rem;
+  }
+  
+  .slideshow-wrapper,
+  .slideshow-image {
+    height: 220px;
+  }
+  
+  .slideshow-title {
+    font-size: 0.9rem;
+  }
+  
+  .slideshow-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  
+  .total-score {
+    font-size: 1.8rem;
+  }
+  
+  .house-ranking {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE ORIENTATION
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-title {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+  }
+  
+  .slideshow-wrapper,
+  .slideshow-image {
+    height: 200px;
+  }
+  
+  .chart-container canvas {
+    max-height: 200px !important;
+  }
+  
+  .sport-chart-wrapper {
+    height: 150px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .slideshow-slide {
+    transition: none;
+  }
+  
+  .sport-card::after,
+  .event-card::after,
+  .hcard::before {
+    animation: none;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  header, 
+  .header-nav,
+  .back-button,
+  .slideshow-controls,
+  .slideshow-arrow,
+  .footer-socials,
+  .download-button,
+  .app-download-section {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .sport-card,
+  .ranking-card,
+  .hcard,
+  .chart-container {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
