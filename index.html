@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InterHouse Sports Scores 2025</title>
+  <title>InterHouse Sports Scores 2026</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="icon" type="image/png" sizes="32x32"
@@ -17,54 +18,83 @@
 <body>
   <div class="container">
     <header>
-      <div class="header-left">
-        <div class="profile-icon"></div>
-        <div class="club-icon"></div>
-        <div class="trophy-icon">🏆</div>
-        <div class="header-title">InterHouse Sports Scores 2025</div>
+      <div class="header-brand">
+        <div class="brand-logos">
+          <div class="profile-icon"></div>
+          <div class="club-icon"></div>
+        </div>
+        <div class="brand-info">
+          <div class="header-title">InterHouse Sports 2026</div>
+          <div class="header-subtitle">Live Scores & Rankings</div>
+        </div>
       </div>
-      <div class="nav-tabs">
-        <a class="nav-tab" id="leaderboard-tab">Leaderboard</a>
-        <a class="nav-tab" id="scores-tab">Scores</a>
-        <a class="nav-tab" id="moments-tab">Winning Moments</a>
-        <a class="nav-tab" id="analytics-tab">Analytics</a>
-      </div>
+      <nav class="header-nav" role="navigation" aria-label="Main navigation">
+        <a class="nav-tab" id="leaderboard-tab" title="Leaderboard" aria-label="Leaderboard">
+          <i class="fas fa-trophy" aria-hidden="true"></i>
+          <span>Leaderboard</span>
+        </a>
+        <a class="nav-tab" id="scores-tab" title="Scores" aria-label="Scores">
+          <i class="fas fa-chart-bar" aria-hidden="true"></i>
+          <span>Scores</span>
+        </a>
+        <a class="nav-tab" id="moments-tab" title="Moments" aria-label="Moments">
+          <i class="fas fa-camera" aria-hidden="true"></i>
+          <span>Moments</span>
+        </a>
+        <a class="nav-tab" id="analytics-tab" title="Analytics" aria-label="Analytics">
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
+          <span>Analytics</span>
+        </a>
+      </nav>
     </header>
     
     <div class="loading-screen" id="loadingScreen">
-      <div class="loading-logo"></div>
-
+      <div class="loader-container">
+        <div class="circular-loader">
+          <div class="loader-ring ring-1"></div>
+          <div class="loader-ring ring-2"></div>
+          <div class="loader-ring ring-3"></div>
+          <div class="loader-center"></div>
+        </div>
+      </div>
+      <div class="loader-progress-container">
+        <div class="loader-progress-bar">
+          <div class="loader-progress-fill" id="progressFill"></div>
+        </div>
+        <div class="loader-progress-text" id="progressText">0%</div>
+      </div>
+      <div class="loading-status" id="loadingStatus">LOADING...</div>
     </div>
 
     <!-- Leaderboard Page -->
     <div id="leaderboard-page" class="page" style="display: none;">
       <div class="page-title">
-        <span class="page-title-icon">⭐</span>
-        <span>Overall House Rankings 2025</span>
+        <span class="page-title-icon"><i class="fas fa-star"></i></span>
+        <span>Overall House Rankings 2026</span>
       </div>
       <div class="rankings-grid" id="rankings-container"></div>
       <br><br>
       <!-- App Download Section -->
       <div class="app-download-section">
         <div class="app-section-header">
-          <h2 class="app-section-title">📱 Download Mobile App</h2>
-          <p class="app-section-subtitle">Get the InterHouse Sports Scores 2025 mobile app for real-time updates and offline access</p>
+          <h2 class="app-section-title"><i class="fas fa-mobile-alt"></i> Download Mobile App</h2>
+          <p class="app-section-subtitle">Get the InterHouse Sports Scores 2026 mobile app for real-time updates and offline access</p>
         </div>
 
         <div class="app-files-grid">
           <div class="app-file-card">
             <div class="file-icon-container apk-icon">
-              <div class="file-icon">📱</div>
+              <div class="file-icon"><i class="fab fa-android"></i></div>
             </div>
             <div class="file-info">
-              <div class="file-name">InterHouse Sports Score 2025</div>
+              <div class="file-name">InterHouse Sports Score 2026</div>
               <span class="file-extension">.APK</span>
               <div class="file-details">
                 <span class="file-size">12.5 MB</span>
                 <span class="file-version">v1.0.2</span>
               </div>
               <a href="https://mega.nz/file/WBtQ1CpC#R2hqT7YiFWmJdnDv8HFIDJC60Np4kSzqul72g9dGwEc" class="download-button">
-                <span>📥</span>
+                <i class="fas fa-download"></i>
                 Download for Android
               </a>
             </div>
@@ -171,8 +201,8 @@
     <!-- Scores Page -->
     <div id="scores-page" class="page">
       <div class="page-title">
-        <span class="page-title-icon">📊</span>
-        <span>Sports Scores 2025</span>
+        <span class="page-title-icon"><i class="fas fa-chart-bar"></i></span>
+        <span>Sports Scores 2026</span>
       </div>
       <div class="sports-grid" id="sports-container"></div>
     </div>
@@ -180,8 +210,8 @@
     <!-- Winning Moments Page -->
     <div id="moments-page" class="page" style="display: none;">
       <div class="page-title">
-        <span class="page-title-icon">📸</span>
-        <span>Winning Moments 2025</span>
+        <span class="page-title-icon"><i class="fas fa-camera"></i></span>
+        <span>Winning Moments 2026</span>
       </div>
       <!-- Image Slideshow -->
       <div class="slideshow-container" id="slideshow-container"></div>
@@ -189,6 +219,12 @@
       <br>
       <!-- Moments Grid -->
       <div class="moments-grid" id="moments-container"></div>
+      
+      <!-- Photo Credits -->
+      <div class="photo-credits">
+        <i class="fas fa-camera"></i>
+        <span>All photos copyrights goes to Bandaranayake College Photographic Art Society</span>
+      </div>
     </div>
     
     <!-- House Details Page -->
@@ -200,7 +236,7 @@
         Back to Leaderboard
       </button>
       <div class="page-title">
-        <span class="page-title-icon">🏠</span>
+        <span class="page-title-icon"><i class="fas fa-home"></i></span>
         <span id="house-details-title">House Details</span>
       </div>
       <div class="sports-grid" id="house-sports-container"></div>
@@ -215,7 +251,7 @@
         Back to Sports
       </button>
       <div class="page-title">
-        <span class="page-title-icon">🏃</span>
+        <span class="page-title-icon"><i class="fas fa-running"></i></span>
         <span>Athletics Details</span>
       </div>
       <div class="athletics-container" id="athletics-container"></div>
@@ -224,14 +260,97 @@
     <!-- Analytics Dashboard Page -->
     <div id="analytics-page" class="page" style="display: none;">
       <div class="page-title">
-        <span class="page-title-icon">📈</span>
+        <span class="page-title-icon"><i class="fas fa-chart-line"></i></span>
         <span>Performance Analytics</span>
       </div>
-      <div class="dashboard-container">
+      
+      <!-- Section 1: Current Year Analytics (2026) -->
+      <div class="analytics-section">
         <div class="hcard">
           <div class="hcard-header">
-            <h2 class="hcard-title">Historical Performance Comparison</h2>
-            <p class="hcard-subtitle">Compare house performance across years</p>
+            <div class="hcard-title-wrapper">
+              <i class="fas fa-calendar-check hcard-icon"></i>
+              <h2 class="hcard-title">Current Year Analytics - 2026</h2>
+            </div>
+            <p class="hcard-subtitle">View detailed performance for the current year</p>
+          </div>
+          
+          <!-- Current Year Stats Cards -->
+          <div class="analytics-stats-grid" id="current-year-stats">
+            <div class="analytics-stat-card stat-total">
+              <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="stat-content">
+                <div class="stat-value" id="stat-leader">--</div>
+                <div class="stat-label">Current Leader</div>
+              </div>
+            </div>
+            <div class="analytics-stat-card stat-points">
+              <div class="stat-icon"><i class="fas fa-star"></i></div>
+              <div class="stat-content">
+                <div class="stat-value" id="stat-total-points">--</div>
+                <div class="stat-label">Total Points</div>
+              </div>
+            </div>
+            <div class="analytics-stat-card stat-sports">
+              <div class="stat-icon"><i class="fas fa-medal"></i></div>
+              <div class="stat-content">
+                <div class="stat-value" id="stat-sports-count">--</div>
+                <div class="stat-label">Sports Completed</div>
+              </div>
+            </div>
+            <div class="analytics-stat-card stat-years">
+              <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+              <div class="stat-content">
+                <div class="stat-value">2026</div>
+                <div class="stat-label">Current Year</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Current Year Total Points Chart -->
+          <div class="chart-container">
+            <h3 class="chart-title"><i class="fas fa-chart-bar"></i> Total Points by House</h3>
+            <canvas id="current-year-chart"></canvas>
+          </div>
+          
+          <!-- Sport by Sport Breakdown -->
+          <div class="chart-container sport-breakdown-container">
+            <h3 class="chart-title"><i class="fas fa-futbol"></i> Sport by Sport Scores</h3>
+            <div class="sport-filter-buttons" id="sport-filter-buttons">
+              <!-- Buttons will be populated by JavaScript -->
+            </div>
+            <div class="sport-chart-wrapper">
+              <canvas id="sport-breakdown-chart"></canvas>
+            </div>
+          </div>
+          
+          <!-- House Rankings Table -->
+          <div class="house-rankings-table" id="house-rankings-table">
+            <table class="rankings-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>House</th>
+                  <th>Total Points</th>
+                  <th>Top Sport</th>
+                </tr>
+              </thead>
+              <tbody id="rankings-table-body">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 2: Historical Performance Comparison -->
+      <div class="analytics-section">
+        <div class="hcard">
+          <div class="hcard-header">
+            <div class="hcard-title-wrapper">
+              <i class="fas fa-chart-area hcard-icon"></i>
+              <h2 class="hcard-title">Historical Performance Comparison</h2>
+            </div>
+            <p class="hcard-subtitle">Compare house performance across years with interactive filters</p>
           </div>
           
           <!-- Filter Controls -->
@@ -284,20 +403,6 @@
               </div>
             </div>
             
-            <div class="filter-group">
-              <div class="filter-label-container">
-                <label class="filter-label">Time Range</label>
-                <div class="tooltip">
-                  <span class="tooltip-icon">?</span>
-                  <span class="tooltip-text">Select the number of years to display</span>
-                </div>
-              </div>
-              <div class="filter-options" id="time-range-options">
-                <div class="filter-option active" data-value="5">5 Years</div>
-                <div class="filter-option" data-value="3">3 Years</div>
-                <div class="filter-option" data-value="2">2 Years</div>
-              </div>
-            </div>
           </div>
           
           <!-- Chart Type Toggle -->
@@ -321,6 +426,7 @@
         </div>
       </div>
     </div>
+
     
 <footer class="footer">
   <div class="footer-container">
@@ -343,20 +449,55 @@
   </div>
 
   <div class="footer-bottom">
-<span>© 2025 Bandaranayake College <a class="officialweblink" href="https://teamcdc.netlify.app">Coding Club</a>. All rights reserved.</span><br>
-     <span class="last-updated">Last Updated: <span id="last-update-date">Aug 08, 2025</span></span>
+<span>© 2026 Bandaranayake College <a class="officialweblink" href="https://teamcdc.netlify.app">Coding Club</a>. All rights reserved.</span><br>
+     <span class="last-updated">Last Updated: <span id="last-update-date">Dec 04, 2025</span></span>
   </div>
 </footer>
   </div>
 
-  <!-- Import Sports Data -->
-  <script src="sportsdata.js"></script>
+  <!-- Import Historical and Moments Data -->
+  <script src="historical.js"></script>
+  <script src="moments.js"></script>
   
   <script>
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("loadingScreen").classList.add("hidden");
-  }, 1000); // 1000ms = 1s
+  const progressFill = document.getElementById("progressFill");
+  const progressText = document.getElementById("progressText");
+  const loadingStatus = document.getElementById("loadingStatus");
+  
+  const statusMessages = [
+    "LOADING...",
+    "PREPARING DATA...",
+    "ALMOST READY..."
+  ];
+  
+  let progress = 0;
+  const totalDuration = 2000;
+  const interval = 30;
+  const increment = 100 / (totalDuration / interval);
+  
+  const progressInterval = setInterval(() => {
+    progress += increment + (Math.random() * 2);
+    if (progress > 100) progress = 100;
+    
+    progressFill.style.width = progress + "%";
+    progressText.textContent = Math.floor(progress) + "%";
+    
+    if (progress < 40) {
+      loadingStatus.textContent = statusMessages[0];
+    } else if (progress < 75) {
+      loadingStatus.textContent = statusMessages[1];
+    } else {
+      loadingStatus.textContent = statusMessages[2];
+    }
+    
+    if (progress >= 100) {
+      clearInterval(progressInterval);
+      setTimeout(() => {
+        document.getElementById("loadingScreen").classList.add("hidden");
+      }, 300);
+    }
+  }, interval);
 });
 
     // DOM Elements - Navigation and Pages
@@ -502,7 +643,10 @@ window.addEventListener("load", () => {
         // Add details link for Athletics
         if (sport.id === "Athletics") {
           sportContent += `
-          <div class="see-more-link"><center>You can see more details - Click on this card</center></div>
+          <div class="see-more-btn">
+            <span class="see-more-text">View Details</span>
+            <span class="see-more-icon"><i class="fas fa-arrow-right"></i></span>
+          </div>
           `;
         }
 
@@ -553,14 +697,14 @@ function calculateTotalPoints() {
 
       rankings.forEach((house, index) => {
         const rankCard = document.createElement('div');
-        rankCard.className = `ranking-card ${index === 0 ? 'highlighted' : ''}`;
+        rankCard.className = `ranking-card ${house.color}-card ${index === 0 ? 'highlighted' : ''}`;
         rankCard.dataset.house = house.name;
         rankCard.addEventListener('click', () => showHouseDetails(house.name));
 
         rankCard.innerHTML = `
         <div class="rank-number">Rank #${index + 1}</div>
         <div class="house-ranking ${house.color}">
-          <span class="house-icon">🏠</span>
+          <span class="house-icon"><i class="fas fa-home"></i></span>
           <span>${house.name}</span>
         </div>
         <div class="total-score">${house.total}</div>
@@ -639,69 +783,34 @@ function calculateTotalPoints() {
           const eventCard = document.createElement('div');
           eventCard.className = 'event-card';
           
-          // Event Header
-          const eventHeaderContainer = document.createElement('div');
-          eventHeaderContainer.className = 'event-header';
-          
-          const eventName = document.createElement('span');
-          eventName.className = 'event-name';
-          eventName.textContent = event.name;
-          
-          const eventLocation = document.createElement('span');
-          eventLocation.className = 'event-location';
-          eventLocation.textContent = event.location || '';
-          
-          const eventDate = document.createElement('span');
-          eventDate.className = 'event-date';
-          eventDate.textContent = event.date || '';
-              
-          eventHeaderContainer.appendChild(eventName);
-          eventHeaderContainer.appendChild(eventLocation);
-          eventHeaderContainer.appendChild(eventDate);
-          eventCard.appendChild(eventHeaderContainer);
-          
-          // Event Results
-          const eventResults = document.createElement('div');
-          eventResults.className = 'event-results';
-          
           const maxScore = Math.max(...event.scores.map(item => item.score));
-          const sortedHouses = [...event.scores].sort((a, b) => a.house.localeCompare(b.house));
           
-          sortedHouses.forEach(score => {
+          // Build event card HTML like sport card
+          let eventContent = `
+            <div class="event-header">
+              <div class="event-name">${event.name}</div>
+              ${event.location ? `<div class="event-location">${event.location}</div>` : ''}
+              ${event.date ? `<div class="event-date">${event.date}</div>` : ''}
+            </div>
+          `;
+          
+          // Add scores for each house (same as sport card)
+          event.scores.forEach(score => {
             const percentage = maxScore > 0 ? (score.score / maxScore) * 100 : 0;
-            
-            const positionResult = document.createElement('div');
-            positionResult.className = 'position-result';
-            
-            const colorDot = document.createElement('div');
-            colorDot.className = `color-dot ${score.house.toLowerCase()}`;
-            
-            const houseName = document.createElement('div');
-            houseName.className = `house-name ${score.house.toLowerCase()}`;
-            houseName.textContent = score.house;
-            
-            const scoreValue = document.createElement('div');
-            scoreValue.className = 'score-value';
-            scoreValue.textContent = score.score;
-            
-            positionResult.appendChild(colorDot);
-            positionResult.appendChild(houseName);
-            positionResult.appendChild(scoreValue);
-            eventResults.appendChild(positionResult);
-            
-            // Progress Bar
-            const progressContainer = document.createElement('div');
-            progressContainer.className = 'progress-container';
-            
-            const progressBar = document.createElement('div');
-            progressBar.className = `progress-bar ${score.house.toLowerCase()}`;
-            progressBar.style.width = `${percentage}%`;
-            
-            progressContainer.appendChild(progressBar);
-            eventResults.appendChild(progressContainer);
+            eventContent += `
+              <div class="score-item">
+                <div class="score-row">
+                  <div class="house-name ${score.house.toLowerCase()}">${score.house}</div>
+                  <div class="house-score">${score.score}</div>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar ${score.house.toLowerCase()}" style="width: ${percentage}%"></div>
+                </div>
+              </div>
+            `;
           });
           
-          eventCard.appendChild(eventResults);
+          eventCard.innerHTML = eventContent;
           categoryEvents.appendChild(eventCard);
         });
         
@@ -715,6 +824,10 @@ function calculateTotalPoints() {
       slideshowContainer.innerHTML = '';
       slideshowControls.innerHTML = '';
       
+      // Create wrapper for slides
+      const wrapper = document.createElement('div');
+      wrapper.className = 'slideshow-wrapper';
+      
       momentsData.moments.forEach((moment, index) => {
         const slide = document.createElement('div');
         slide.className = `slideshow-slide ${index === 0 ? 'active' : ''}`;
@@ -724,14 +837,14 @@ function calculateTotalPoints() {
         
         slide.innerHTML = `
           <img src="${imagePath}" alt="${moment.title}" class="slideshow-image">
+          <span class="moment-house-badge ${houseColor}">${moment.house}</span>
           <div class="slideshow-caption">
             <div class="slideshow-title">${moment.title}</div>
             <div class="slideshow-description">${moment.description}</div>
-            <div class="slideshow-house ${houseColor}">${moment.house} House</div>
           </div>
         `;
         
-        slideshowContainer.appendChild(slide);
+        wrapper.appendChild(slide);
         
         const indicator = document.createElement('div');
         indicator.className = `slideshow-indicator ${index === 0 ? 'active' : ''}`;
@@ -742,15 +855,36 @@ function calculateTotalPoints() {
         
         slideshowControls.appendChild(indicator);
       });
+      
+      // Add arrow buttons
+      const prevArrow = document.createElement('button');
+      prevArrow.className = 'slideshow-arrow prev';
+      prevArrow.innerHTML = '<i class="fas fa-chevron-left"></i>';
+      prevArrow.addEventListener('click', () => prevSlide());
+      
+      const nextArrow = document.createElement('button');
+      nextArrow.className = 'slideshow-arrow next';
+      nextArrow.innerHTML = '<i class="fas fa-chevron-right"></i>';
+      nextArrow.addEventListener('click', () => nextSlide());
+      
+      slideshowContainer.appendChild(wrapper);
+      slideshowContainer.appendChild(prevArrow);
+      slideshowContainer.appendChild(nextArrow);
     }
 
     function goToSlide(index) {
       const slides = document.querySelectorAll('.slideshow-slide');
       const indicators = document.querySelectorAll('.slideshow-indicator');
       
-      slides.forEach(slide => slide.classList.remove('active'));
+      // Remove all classes
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'prev', 'next');
+        if (i < index) slide.classList.add('prev');
+        if (i > index) slide.classList.add('next');
+      });
       indicators.forEach(indicator => indicator.classList.remove('active'));
       
+      // Add active class
       slides[index].classList.add('active');
       indicators[index].classList.add('active');
       
@@ -762,6 +896,12 @@ function calculateTotalPoints() {
       const slides = document.querySelectorAll('.slideshow-slide');
       const nextIndex = (currentSlide + 1) % slides.length;
       goToSlide(nextIndex);
+    }
+
+    function prevSlide() {
+      const slides = document.querySelectorAll('.slideshow-slide');
+      const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+      goToSlide(prevIndex);
     }
 
     function startSlideshow() {
@@ -793,20 +933,34 @@ function calculateTotalPoints() {
         const imagePath = moment.image || `/api/placeholder/400/200`;
         const houseColor = moment.house.toLowerCase();
         
-        const albumLink = moment.album ? 
-          `<a href="${moment.album}" class="view-album-link">📸 View Album</a>` : '';
+        const albumBtn = moment.album ? 
+          `<a href="${moment.album}" target="_blank" class="moment-album-icon" title="View Album">
+            <i class="fas fa-images"></i>
+          </a>` : '';
+        
+        const viewAlbumBtn = moment.album ? 
+          `<a href="${moment.album}" target="_blank" class="moment-cta-btn">
+            <span>View Album</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>` : '';
         
         momentCard.innerHTML = `
-          <img src="${imagePath}" alt="${moment.title}" class="moment-image">
+          <div class="moment-image-wrapper">
+            <img src="${imagePath}" alt="${moment.title}" class="moment-image" loading="lazy">
+            <div class="moment-image-overlay"></div>
+            <div class="moment-image-shine"></div>
+            <span class="moment-house-badge ${houseColor}">${moment.house}</span>
+            ${albumBtn}
+          </div>
           <div class="moment-content">
-            <div class="moment-title">${moment.title}</div>
-            <div class="moment-description">${moment.description}</div>
-            <div class="moment-footer">
-              <div class="moment-house">
-                <span class="house-icon ${houseColor}">🏠</span>
-                <span class="moment-house-name ${houseColor}">${moment.house} House</span>
-              </div>
-              ${albumLink}
+            <div class="moment-sport-tag">
+              <i class="fas fa-trophy"></i>
+              <span>Winning Moment</span>
+            </div>
+            <h3 class="moment-title">${moment.title}</h3>
+            <p class="moment-description">${moment.description}</p>
+            <div class="moment-actions">
+              ${viewAlbumBtn}
             </div>
           </div>
         `;
@@ -826,7 +980,6 @@ function calculateTotalPoints() {
     // Chart Variables
     const houseOptions = document.getElementById('house-options');
     const sportOptions = document.getElementById('sport-options');
-    const timeRangeOptions = document.getElementById('time-range-options');
     const lineChartBtn = document.getElementById('line-chart-btn');
     const barChartBtn = document.getElementById('bar-chart-btn');
     const chartDescription = document.getElementById('chart-description');
@@ -836,8 +989,7 @@ function calculateTotalPoints() {
     let currentState = {
       selectedHouse: "All Houses",
       selectedSport: "All Sports",
-      chartType: "bar",
-      timeRange: "5"
+      chartType: "bar"
     };
 
     // Filter Options Handler
@@ -859,19 +1011,15 @@ function calculateTotalPoints() {
     function initChart() {
       setupFilterOptions(houseOptions, 'selectedHouse');
       setupFilterOptions(sportOptions, 'selectedSport');
-      setupFilterOptions(timeRangeOptions, 'timeRange');
       updateChartData();
       updateDescription();
     }
 
-    // Transform Data for Chart
+    // Transform Data for Chart - uses all available years dynamically
     function transformData() {
-      const yearsToInclude = historicalData
-        .filter(item => item.year > 2025 - parseInt(currentState.timeRange))
-        .map(item => item.year);
-      
-      const filteredData = historicalData.filter(item => yearsToInclude.includes(item.year));
-      const labels = filteredData.map(item => item.year);
+      // Use all available years from historicalData (sorted ascending)
+      const sortedData = [...historicalData].sort((a, b) => a.year - b.year);
+      const labels = sortedData.map(item => item.year);
       const datasets = [];
       
       const houses = currentState.selectedHouse === "All Houses" 
@@ -879,7 +1027,7 @@ function calculateTotalPoints() {
         : [currentState.selectedHouse];
       
       houses.forEach(house => {
-        const data = filteredData.map(yearData => {
+        const data = sortedData.map(yearData => {
           return currentState.selectedSport === "All Sports"
             ? yearData[house].total
             : yearData[house][currentState.selectedSport] || 0;
@@ -888,7 +1036,7 @@ function calculateTotalPoints() {
         datasets.push({
           label: house,
           data: data,
-          backgroundColor: houseColors[house] + '80', // Add transparency for bars
+          backgroundColor: houseColors[house] + '80',
           borderColor: houseColors[house],
           borderWidth: 2,
           tension: 0.4,
@@ -989,13 +1137,14 @@ function calculateTotalPoints() {
         ? "overall points" 
         : currentState.selectedSport;
       
-      const timeText = currentState.timeRange === "5" 
-        ? "last 5 years" 
-        : currentState.timeRange === "3" 
-          ? "last 3 years" 
-          : "last 2 years";
+      // Calculate years dynamically from historicalData
+      const years = historicalData.map(item => item.year).sort((a, b) => a - b);
+      const yearCount = years.length;
+      const timeText = yearCount === 1 
+        ? `year ${years[0]}` 
+        : `${yearCount} years (${years[0]}-${years[years.length - 1]})`;
       
-      chartDescription.textContent = `This chart shows the ${houseText} in ${sportText} over the ${timeText}.`;
+      chartDescription.textContent = `This chart shows the ${houseText} in ${sportText} over ${timeText}.`;
     }
 
     barChartBtn.addEventListener('click', () => {
@@ -1013,12 +1162,407 @@ function calculateTotalPoints() {
     });
 
 
+    // Update Analytics Stats (uses current data from sportsData)
+    function updateAnalyticsStats() {
+      const rankings = calculateTotalPoints();
+      const leader = rankings[0];
+      const totalPoints = rankings.reduce((sum, house) => sum + house.total, 0);
+      const sportsCount = sportsData.sports.length;
+      
+      const leaderEl = document.getElementById('stat-leader');
+      const totalPointsEl = document.getElementById('stat-total-points');
+      const sportsCountEl = document.getElementById('stat-sports-count');
+      
+      if (leaderEl) leaderEl.textContent = leader.name;
+      if (totalPointsEl) totalPointsEl.textContent = totalPoints.toLocaleString();
+      if (sportsCountEl) sportsCountEl.textContent = sportsCount;
+    }
+
+    // Current Year Analytics Variables
+    let currentYearChart = null;
+    let sportBreakdownChart = null;
+    const currentYear = 2026;
+    let yearDataCache = {};
+    let current2026Data = null;
+    const currentYearChartCanvas = document.getElementById('current-year-chart');
+    const sportBreakdownChartCanvas = document.getElementById('sport-breakdown-chart');
+    const rankingsTableBody = document.getElementById('rankings-table-body');
+    const sportFilterButtons = document.getElementById('sport-filter-buttons');
+    let selectedSport = '';
+
+    // Load Year Data from JSON
+    async function loadYearData(year) {
+      if (yearDataCache[year]) {
+        return yearDataCache[year];
+      }
+      
+      try {
+        const response = await fetch(`data/${year}.json`);
+        if (!response.ok) {
+          throw new Error(`Failed to load ${year}.json`);
+        }
+        const data = await response.json();
+        yearDataCache[year] = data;
+        return data;
+      } catch (error) {
+        console.error(`Error loading data for year ${year}:`, error);
+        return null;
+      }
+    }
+
+    // Populate Sport Filter Buttons from 2026.json sports array
+    function populateSportFilterButtons(yearData) {
+      if (!sportFilterButtons || !yearData.sports) return;
+      
+      sportFilterButtons.innerHTML = '';
+      
+      // Add "All Sports" button first
+      const allBtn = document.createElement('button');
+      allBtn.className = 'sport-filter-btn active';
+      allBtn.dataset.sport = '';
+      allBtn.textContent = 'All';
+      allBtn.addEventListener('click', () => handleSportFilter('', yearData));
+      sportFilterButtons.appendChild(allBtn);
+      
+      yearData.sports.forEach(sport => {
+        const btn = document.createElement('button');
+        btn.className = 'sport-filter-btn';
+        btn.dataset.sport = sport.id;
+        btn.textContent = sport.name;
+        btn.addEventListener('click', () => handleSportFilter(sport.id, yearData));
+        sportFilterButtons.appendChild(btn);
+      });
+    }
+    
+    // Handle Sport Filter Button Click
+    function handleSportFilter(sportId, yearData) {
+      selectedSport = sportId;
+      
+      // Update active state
+      const buttons = sportFilterButtons.querySelectorAll('.sport-filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.sport === sportId) {
+          btn.classList.add('active');
+        }
+      });
+      
+      updateSportBreakdownChart(yearData, sportId);
+    }
+
+    // Update Current Year Analytics (always 2026)
+    async function updateCurrentYearAnalytics() {
+      const yearData = await loadYearData(currentYear);
+      
+      if (!yearData) {
+        console.error('No data available for 2026');
+        return;
+      }
+      
+      current2026Data = yearData;
+      updateCurrentYearStats(yearData);
+      updateCurrentYearChart(yearData);
+      populateSportFilterButtons(yearData);
+      updateSportBreakdownChart(yearData, '');
+      updateRankingsTable(yearData);
+    }
+
+    // Get 2026 historical data from global historicalData array
+    function get2026HistoricalData() {
+      const data2026 = historicalData.find(item => item.year === 2026);
+      return data2026 || null;
+    }
+
+    // Update Current Year Stats Cards
+    function updateCurrentYearStats(yearData) {
+      const data2026 = get2026HistoricalData();
+      const houses = ['Gemunu', 'Vijaya', 'Parakrama', 'Tissa'];
+      
+      let rankings = houses.map(house => ({
+        name: house,
+        total: data2026 && data2026[house] ? data2026[house].total : 0
+      }));
+      
+      rankings.sort((a, b) => b.total - a.total);
+      
+      const leader = rankings[0];
+      const totalPoints = rankings.reduce((sum, house) => sum + house.total, 0);
+      const sportsCount = yearData.sports ? yearData.sports.length : 0;
+      
+      document.getElementById('stat-leader').textContent = leader.name;
+      document.getElementById('stat-total-points').textContent = totalPoints.toLocaleString();
+      document.getElementById('stat-sports-count').textContent = sportsCount;
+    }
+
+    // Update Current Year Chart
+    function updateCurrentYearChart(yearData) {
+      if (!currentYearChartCanvas) return;
+      
+      const data2026 = get2026HistoricalData();
+      const houses = ['Gemunu', 'Vijaya', 'Parakrama', 'Tissa'];
+      
+      const labels = houses;
+      const totals = houses.map(house => data2026 && data2026[house] ? data2026[house].total : 0);
+      
+      if (currentYearChart) {
+        currentYearChart.destroy();
+      }
+      
+      const ctx = currentYearChartCanvas.getContext('2d');
+      currentYearChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: `Total Points 2026`,
+            data: totals,
+            backgroundColor: [
+              houseColors['Gemunu'] + '80',
+              houseColors['Vijaya'] + '80',
+              houseColors['Parakrama'] + '80',
+              houseColors['Tissa'] + '80'
+            ],
+            borderColor: [
+              houseColors['Gemunu'],
+              houseColors['Vijaya'],
+              houseColors['Parakrama'],
+              houseColors['Tissa']
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              titleColor: '#ffffff',
+              bodyColor: '#ffffff'
+            }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'House',
+                color: '#ffffff',
+                font: { size: 14, weight: 'bold' }
+              },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' },
+              ticks: { color: '#ffffff' }
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Total Points',
+                color: '#ffffff',
+                font: { size: 14, weight: 'bold' }
+              },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' },
+              ticks: { color: '#ffffff' }
+            }
+          }
+        }
+      });
+    }
+
+    // Update Sport Breakdown Chart - shows individual sport scores when selected
+    function updateSportBreakdownChart(yearData, selectedSportId) {
+      if (!sportBreakdownChartCanvas) return;
+      
+      const houses = ['Gemunu', 'Vijaya', 'Parakrama', 'Tissa'];
+      
+      if (sportBreakdownChart) {
+        sportBreakdownChart.destroy();
+      }
+      
+      // If no sport selected, show message
+      if (!selectedSportId) {
+        const ctx = sportBreakdownChartCanvas.getContext('2d');
+        ctx.clearRect(0, 0, sportBreakdownChartCanvas.width, sportBreakdownChartCanvas.height);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '16px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Select a sport from the dropdown to view scores', sportBreakdownChartCanvas.width / 2, sportBreakdownChartCanvas.height / 2);
+        return;
+      }
+      
+      // Find the selected sport from sports array
+      const selectedSport = yearData.sports.find(sport => sport.id === selectedSportId);
+      
+      if (!selectedSport) {
+        console.error('Sport not found:', selectedSportId);
+        return;
+      }
+      
+      // Get scores for each house from the sports array
+      const scores = houses.map(house => {
+        const houseScore = selectedSport.scores.find(s => s.house === house);
+        return houseScore ? houseScore.score : 0;
+      });
+      
+      const ctx = sportBreakdownChartCanvas.getContext('2d');
+      sportBreakdownChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: houses,
+          datasets: [{
+            label: selectedSport.name,
+            data: scores,
+            backgroundColor: houses.map(house => houseColors[house] + '80'),
+            borderColor: houses.map(house => houseColors[house]),
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            title: {
+              display: true,
+              text: `${selectedSport.name} - House Scores`,
+              color: '#ffffff',
+              font: { size: 16, weight: 'bold' }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              titleColor: '#ffffff',
+              bodyColor: '#ffffff'
+            }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'House',
+                color: '#ffffff',
+                font: { size: 14, weight: 'bold' }
+              },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' },
+              ticks: { color: '#ffffff' }
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Points',
+                color: '#ffffff',
+                font: { size: 14, weight: 'bold' }
+              },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' },
+              ticks: { color: '#ffffff' }
+            }
+          }
+        }
+      });
+    }
+
+    // Update Rankings Table
+    function updateRankingsTable(yearData) {
+      if (!rankingsTableBody) return;
+      
+      const data2026 = get2026HistoricalData();
+      const houses = ['Gemunu', 'Vijaya', 'Parakrama', 'Tissa'];
+      
+      let rankings = houses.map(house => {
+        const houseData = data2026 && data2026[house] ? data2026[house] : {};
+        const sportsScores = Object.entries(houseData).filter(([key]) => key !== 'total');
+        let topSport = { name: 'N/A', score: 0 };
+        
+        sportsScores.forEach(([sport, score]) => {
+          if (score > topSport.score) {
+            topSport = { name: formatSportName(sport), score: score };
+          }
+        });
+        
+        return {
+          name: house,
+          total: houseData.total || 0,
+          topSport: topSport.name
+        };
+      });
+      
+      rankings.sort((a, b) => b.total - a.total);
+      
+      rankingsTableBody.innerHTML = rankings.map((house, index) => `
+        <tr>
+          <td>#${index + 1}</td>
+          <td>${house.name}</td>
+          <td>${house.total.toLocaleString()}</td>
+          <td>${house.topSport}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Format Sport Name
+    function formatSportName(sport) {
+      const sportNames = {
+        'bestHouseDesign': 'Best House Design',
+        'karate': 'Karate',
+        'tableTennis': 'Table Tennis',
+        'hardball': 'Hardball',
+        'wrestling': 'Wrestling',
+        'boxing': 'Boxing',
+        'football': 'Football',
+        'athletics': 'Athletics',
+        'swimming': 'Swimming',
+        'tagRugby': 'Tag Rugby',
+        'roadRace': 'Road Race',
+        'badminton': 'Badminton',
+        'chess': 'Chess',
+        'volleyball': 'Volleyball',
+        'elle': 'Elle',
+        'hockey': 'Hockey',
+        'softball': 'Softball',
+        'basketball': 'Basketball'
+      };
+      return sportNames[sport] || sport;
+    }
+
+    // Initialize Current Year Analytics (2026 only)
+    async function initCurrentYearAnalytics() {
+      await updateCurrentYearAnalytics();
+    }
+    
+    // Global data variables (loaded from JSON)
+    let sportsData = { sports: [] };
+    let athleticsData = { categories: [] };
+    
+    // Load data from JSON file
+    async function loadSportsData() {
+      try {
+        const response = await fetch('data/2026.json');
+        if (!response.ok) {
+          throw new Error('Failed to load 2026.json');
+        }
+        const data = await response.json();
+        sportsData = { sports: data.sports || [] };
+        athleticsData = { categories: data.athletics?.categories || [] };
+        return data;
+      } catch (error) {
+        console.error('Error loading sports data:', error);
+        return null;
+      }
+    }
+    
     // Initialize Application
-    function initializeApp() {
+    async function initializeApp() {
+      await loadSportsData();
       renderSports();
       renderRankings();
       renderMoments();
       createSlideshow();
+      updateAnalyticsStats();
+      initCurrentYearAnalytics();
+      initChart();
       showPage(leaderboardPage);
       setActiveTab(leaderboardTab);
     }
